@@ -43,7 +43,7 @@ public class ItemPipe extends ItemBuildCraft implements IItemPipe {
 
 	protected ItemPipe(BCCreativeTab creativeTab) {
 		super(creativeTab);
-		this.setMaxDamage(0);
+		this.setMaxDurability(0);
 		this.setHasSubtypes(true);
 	}
 
@@ -100,13 +100,13 @@ public class ItemPipe extends ItemBuildCraft implements IItemPipe {
 
 				if (!world.isRemote) {
 					TileEntity tile = world.getTileEntity(i, j, k);
-					((TileGenericPipe) tile).initializeFromItemMetadata(itemstack.getItemDamage());
+					((TileGenericPipe) tile).initializeFromItemMetadata(itemstack.getMetadata());
 				}
 
 				world.playSoundEffect(i + 0.5F, j + 0.5F, k + 0.5F,
-						block.stepSound.func_150496_b(),
+						block.stepSound.getStepSound(),
 						(block.stepSound.getVolume() + 1.0F) / 2.0F,
-						block.stepSound.getPitch() * 0.8F);
+						block.stepSound.getFrequency() * 0.8F);
 
 				itemstack.stackSize--;
 
@@ -154,8 +154,8 @@ public class ItemPipe extends ItemBuildCraft implements IItemPipe {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
 		super.addInformation(stack, player, list, advanced);
-		if (stack.getItemDamage() >= 1) {
-			int color = (stack.getItemDamage() - 1) & 15;
+		if (stack.getMetadata() >= 1) {
+			int color = (stack.getMetadata() - 1) & 15;
 			list.add(ColorUtils.getFormattingTooltip(color) + EnumChatFormatting.ITALIC + StringUtils.localize("color." + ColorUtils.getName(color)));
 		}
 		Class<? extends Pipe<?>> pipe = BlockGenericPipe.pipes.get(this);

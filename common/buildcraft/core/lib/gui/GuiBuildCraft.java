@@ -260,8 +260,8 @@ public abstract class GuiBuildCraft extends GuiContainer {
 	}
 
 	@Override
-	protected void mouseMovedOrUp(int mouseX, int mouseY, int eventType) {
-		super.mouseMovedOrUp(mouseX, mouseY, eventType);
+	protected void mouseReleased(int mouseX, int mouseY, int eventType) {
+		super.mouseReleased(mouseX, mouseY, eventType);
 
 		int mX = mouseX - guiLeft;
 		int mY = mouseY - guiTop;

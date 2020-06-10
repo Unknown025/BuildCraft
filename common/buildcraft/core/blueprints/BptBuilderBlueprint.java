@@ -530,7 +530,7 @@ public class BptBuilderBlueprint extends BptBuilderBase {
 
 		for (ItemStack reqStk : tmpReq) {
 			boolean itemBlock = reqStk.getItem() instanceof ItemBlock;
-			Fluid fluid = itemBlock ? FluidRegistry.lookupFluidForBlock(((ItemBlock) reqStk.getItem()).field_150939_a) : null;
+			Fluid fluid = itemBlock ? FluidRegistry.lookupFluidForBlock(((ItemBlock) reqStk.getItem()).blockInstance) : null;
 
 			if (fluid != null && builder.drainBuild(new FluidStack(fluid, FluidContainerRegistry.BUCKET_VOLUME), true)) {
 				continue;
@@ -609,7 +609,7 @@ public class BptBuilderBlueprint extends BptBuilderBase {
 			ItemStack usedStack = reqStk;
 
 			boolean itemBlock = reqStk.getItem() instanceof ItemBlock;
-			Fluid fluid = itemBlock ? FluidRegistry.lookupFluidForBlock(((ItemBlock) reqStk.getItem()).field_150939_a) : null;
+			Fluid fluid = itemBlock ? FluidRegistry.lookupFluidForBlock(((ItemBlock) reqStk.getItem()).blockInstance) : null;
 
 			if (fluid != null
 					&& inv instanceof TileAbstractBuilder
@@ -721,9 +721,9 @@ public class BptBuilderBlueprint extends BptBuilderBase {
 						return -1;
 					} else if (Item.getIdFromItem(os1.getItem()) < Item.getIdFromItem(os2.getItem())) {
 						return 1;
-					} else if (os1.getItemDamage() > os2.getItemDamage()) {
+					} else if (os1.getMetadata() > os2.getMetadata()) {
 						return -1;
-					} else if (os1.getItemDamage() < os2.getItemDamage()) {
+					} else if (os1.getMetadata() < os2.getMetadata()) {
 						return 1;
 					} else {
 						return 0;

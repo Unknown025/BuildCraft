@@ -27,11 +27,11 @@ public class PipeColoringRecipe implements IRecipe {
 			if (stack.getItem() instanceof ItemPipe) {
 				if (pipeStack == null) {
 					pipeStack = new ItemStack(stack.getItem(), 1, 0);
-					oneColorPipeStack = new ItemStack(stack.getItem(), 1, stack.getItemDamage());
+					oneColorPipeStack = new ItemStack(stack.getItem(), 1, stack.getMetadata());
 				} else {
 					if (stack.getItem() == pipeStack.getItem()) {
 						pipeStack.stackSize++;
-						if (oneColorPipeStack.getItemDamage() == oneColorPipeStack.getItemDamage()) {
+						if (oneColorPipeStack.getMetadata() == oneColorPipeStack.getMetadata()) {
 							oneColorPipeStack.stackSize++;
 						}
 					} else {
@@ -50,7 +50,7 @@ public class PipeColoringRecipe implements IRecipe {
 		} else if (pipeStack != null && (isBleach || (dye != null && pipeStack.stackSize == 8)) && !hasDifferentPipes) {
 			ItemStack result = pipeStack;
 			if (dye != null) {
-				result.setItemDamage(ColorUtils.getColorIDFromDye(dye) + 1);
+				result.setMetadata(ColorUtils.getColorIDFromDye(dye) + 1);
 			}
 			return result;
 		}

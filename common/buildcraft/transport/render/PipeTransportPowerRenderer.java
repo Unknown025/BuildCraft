@@ -103,7 +103,7 @@ public class PipeTransportPowerRenderer extends PipeTransportRenderer<PipeTransp
 
 	@Override
 	public void render(Pipe<PipeTransportPower> pipe, double x, double y, double z, float f) {
-		initializeDisplayPowerList(pipe.container.getWorldObj());
+		initializeDisplayPowerList(pipe.container.getWorld());
 
 		PipeTransportPower pow = pipe.transport;
 

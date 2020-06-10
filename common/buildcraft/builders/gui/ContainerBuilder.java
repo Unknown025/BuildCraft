@@ -49,7 +49,7 @@ public class ContainerBuilder extends BuildCraftContainer {
 			addSlotToContainer(new Slot(playerInventory, x, 8 + x * 18, 198));
 		}
 
-		if (!builder.getWorldObj().isRemote && playerInventory instanceof InventoryPlayer) {
+		if (!builder.getWorld().isRemote && playerInventory instanceof InventoryPlayer) {
 			// Refresh the requirements list for the player opening the GUI,
 			// in case he does not have it.
 			builder.updateRequirementsOnGuiOpen(((InventoryPlayer) playerInventory).player);

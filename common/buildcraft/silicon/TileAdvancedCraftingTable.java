@@ -87,7 +87,7 @@ public class TileAdvancedCraftingTable extends TileLaserTableBase implements IIn
 		public void setInventorySlotContents(int slotId, ItemStack itemstack) {
 			super.setInventorySlotContents(slotId, itemstack);
 
-			if (TileAdvancedCraftingTable.this.getWorldObj() == null || !TileAdvancedCraftingTable.this.getWorldObj().isRemote) {
+			if (TileAdvancedCraftingTable.this.getWorld() == null || !TileAdvancedCraftingTable.this.getWorld().isRemote) {
 				int[] id = new int[0];
 				if (itemstack != null) {
 					int[] ids = OreDictionary.getOreIDs(itemstack);
@@ -447,7 +447,7 @@ public class TileAdvancedCraftingTable extends TileLaserTableBase implements IIn
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(int side) {
 		return SLOTS;
 	}
 
@@ -467,7 +467,7 @@ public class TileAdvancedCraftingTable extends TileLaserTableBase implements IIn
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 }

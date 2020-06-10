@@ -27,7 +27,7 @@ public class ItemPackage extends ItemBuildCraft {
 		public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
 			if (stack != null && stack.getItem() instanceof ItemPackage) {
 				World world = source.getWorld();
-				EnumFacing enumfacing = BlockDispenser.func_149937_b(source.getBlockMetadata());
+				EnumFacing enumfacing = BlockDispenser.getFacingDirection(source.getBlockMetadata());
 
 				EntityPackage entityPackage = new EntityPackage(source.getWorld(),
 						source.getX() + enumfacing.getFrontOffsetX(),

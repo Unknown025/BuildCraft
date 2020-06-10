@@ -419,11 +419,11 @@ public class TileAutoWorkbench extends TileBuildCraft implements ISidedInventory
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -438,7 +438,7 @@ public class TileAutoWorkbench extends TileBuildCraft implements ISidedInventory
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int var1) {
+	public int[] getSlotsForFace(int var1) {
 		return SLOTS;
 	}
 
@@ -466,7 +466,7 @@ public class TileAutoWorkbench extends TileBuildCraft implements ISidedInventory
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 }

@@ -273,7 +273,7 @@ public class TileArchitect extends TileBuildCraft implements IInventory, IBoxPro
 	}
 
 	private void initializeBlueprint() {
-		if (getWorldObj().isRemote) {
+		if (getWorld().isRemote) {
 			return;
 		}
 
@@ -292,15 +292,15 @@ public class TileArchitect extends TileBuildCraft implements IInventory, IBoxPro
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return true;
 	}
 

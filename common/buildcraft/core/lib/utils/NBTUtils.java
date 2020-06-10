@@ -28,7 +28,7 @@ public final class NBTUtils {
 
 	public static NBTTagCompound load(byte[] data) {
 		try {
-			NBTTagCompound nbt = CompressedStreamTools.func_152457_a(data, NBTSizeTracker.field_152451_a);
+			NBTTagCompound nbt = CompressedStreamTools.decompress(data, NBTSizeTracker.INFINITE);
 			return nbt;
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -402,7 +402,7 @@ public class BlockGenericPipe extends BlockBuildCraft implements IColorRemovable
 			return;
 		}
 
-		World world = pipe.container.getWorldObj();
+		World world = pipe.container.getWorld();
 
 		if (world == null) {
 			return;
@@ -756,14 +756,14 @@ public class BlockGenericPipe extends BlockBuildCraft implements IColorRemovable
 
 	private boolean stripWire(Pipe<?> pipe, PipeWire color, EntityPlayer player) {
 		if (pipe.wireSet[color.ordinal()]) {
-			if (!pipe.container.getWorldObj().isRemote) {
+			if (!pipe.container.getWorld().isRemote) {
 				dropWire(color, pipe, player);
 			}
 
 			pipe.wireSignalStrength[color.ordinal()] = 0;
 			pipe.wireSet[color.ordinal()] = false;
 
-			if (!pipe.container.getWorldObj().isRemote) {
+			if (!pipe.container.getWorld().isRemote) {
 				pipe.propagateSignalState(color, 0);
 
 				if (isFullyDefined(pipe)) {
@@ -960,7 +960,7 @@ public class BlockGenericPipe extends BlockBuildCraft implements IColorRemovable
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
+	public void registerIcons(IIconRegister iconRegister) {
 
 	}
 

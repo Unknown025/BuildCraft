@@ -213,7 +213,7 @@ public class TileIntegrationTable extends TileLaserTableBase implements ISidedIn
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 
@@ -259,7 +259,7 @@ public class TileIntegrationTable extends TileLaserTableBase implements ISidedIn
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(int side) {
 		return SLOTS;
 	}
 

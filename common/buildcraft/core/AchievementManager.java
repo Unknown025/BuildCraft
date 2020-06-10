@@ -25,10 +25,10 @@ public class AchievementManager {
 	@SubscribeEvent
 	public void onCrafting(PlayerEvent.ItemCraftedEvent event) {
 		Item item = event.crafting.getItem();
-		int damage = event.crafting.getItemDamage();
+		int damage = event.crafting.getMetadata();
 
 		for (Achievement a : page.getAchievements()) {
-			if (item.equals(a.theItemStack.getItem()) && damage == a.theItemStack.getItemDamage()) {
+			if (item.equals(a.theItemStack.getItem()) && damage == a.theItemStack.getMetadata()) {
 				event.player.addStat(a, 1);
 			}
 		}

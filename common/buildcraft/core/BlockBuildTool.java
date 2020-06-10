@@ -21,7 +21,7 @@ public class BlockBuildTool extends Block {
 	}
 
 	@Override
-	public void registerBlockIcons(IIconRegister itemRegister) {
+	public void registerIcons(IIconRegister itemRegister) {
 	}
 
 	@Override

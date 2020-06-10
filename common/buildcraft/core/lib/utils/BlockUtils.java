@@ -364,7 +364,7 @@ public final class BlockUtils {
 	}
 
 	public static void onComparatorUpdate(World world, int x, int y, int z, Block block) {
-		world.func_147453_f(x, y, z, block);
+		world.notifyBlockOfNeighborChange(x, y, z, block);
 	}
 
 	public static TileEntityChest getOtherDoubleChest(TileEntity inv) {

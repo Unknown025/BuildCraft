@@ -129,7 +129,7 @@ public class TriggerEnergy extends BCStatement implements ITriggerInternal {
 			}
 		} else {
 			for (ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
-				TileEntity tile = parent.getWorldObj().getTileEntity(
+				TileEntity tile = parent.getWorld().getTileEntity(
 						parent.xCoord + side.offsetX,
 						parent.yCoord + side.offsetY,
 						parent.zCoord + side.offsetZ

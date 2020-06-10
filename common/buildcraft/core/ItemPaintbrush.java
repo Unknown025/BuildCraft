@@ -36,7 +36,7 @@ public class ItemPaintbrush extends ItemBuildCraft {
 
 		setFull3D();
 		setMaxStackSize(1);
-		setMaxDamage(63);
+		setMaxDurability(63);
 	}
 
 	private int getColor(ItemStack stack) {
@@ -49,7 +49,7 @@ public class ItemPaintbrush extends ItemBuildCraft {
 
 	@Override
 	public void setDamage(ItemStack stack, int damage) {
-		if (damage > getMaxDamage()) {
+		if (damage > getMaxDurability()) {
 			stack.setTagCompound(null);
 			super.setDamage(stack, 0);
 		} else {

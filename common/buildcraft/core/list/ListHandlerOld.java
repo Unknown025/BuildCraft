@@ -106,8 +106,8 @@ public final class ListHandlerOld {
 				return base == matched;
 			} else if (base.getClass() == matched.getClass()) {
 				if (base instanceof ItemBlock) {
-					Block baseBlock = ((ItemBlock) base).field_150939_a;
-					Block matchedBlock = ((ItemBlock) matched).field_150939_a;
+					Block baseBlock = ((ItemBlock) base).blockInstance;
+					Block matchedBlock = ((ItemBlock) matched).blockInstance;
 
 					if (baseBlock.getClass() == Block.class) {
 						return baseBlock == matchedBlock;

@@ -127,7 +127,7 @@ public class ContainerZonePlan extends BuildCraftContainer implements ICommandRe
 	private void computeMap(int cx, int cz, int width, int height, float blocksPerPixel, EntityPlayer player) {
 		final byte[] textureData = new byte[width * height];
 
-		MapWorld w = BuildCraftRobotics.manager.getWorld(map.getWorldObj());
+		MapWorld w = BuildCraftRobotics.manager.getWorld(map.getWorld());
 		int startX = Math.round(cx - width * blocksPerPixel / 2);
 		int startZ = Math.round(cz - height * blocksPerPixel / 2);
 		int mapStartX = map.chunkStartX << 4;

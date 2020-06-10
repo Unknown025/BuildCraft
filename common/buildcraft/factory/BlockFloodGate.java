@@ -81,8 +81,8 @@ public class BlockFloodGate extends BlockBuildCraft {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister register) {
-		super.registerBlockIcons(register);
+	public void registerIcons(IIconRegister register) {
+		super.registerIcons(register);
 		valve = register.registerIcon("buildcraftfactory:floodGateBlock/valve");
 		transparent = register.registerIcon("buildcraftcore:misc/transparent");
 	}

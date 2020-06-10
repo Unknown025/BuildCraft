@@ -73,11 +73,11 @@ public class TileFilteredBuffer extends TileBuildCraft implements IInventory {
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class TileFilteredBuffer extends TileBuildCraft implements IInventory {
 			return true;
 		}
 
-		if (filterItemStack.getItemDamage() == itemstack.getItemDamage()) {
+		if (filterItemStack.getMetadata() == itemstack.getMetadata()) {
 			return true;
 		}
 
@@ -129,7 +129,7 @@ public class TileFilteredBuffer extends TileBuildCraft implements IInventory {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 }

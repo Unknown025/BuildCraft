@@ -338,7 +338,7 @@ public class BuildCraftCore extends BuildCraftMod {
 
 		if (BuildCraftCore.modifyWorld) {
 			BlockSpring.EnumSpring.WATER.canGen = BuildCraftCore.mainConfigManager.get("worldgen.generateWaterSprings").getBoolean();
-			springBlock = new BlockSpring().setBlockName("eternalSpring");
+			springBlock = new BlockSpring().setUnlocalizedName("eternalSpring");
 			BCRegistry.INSTANCE.registerBlock(springBlock, ItemSpring.class, false);
 		}
 
@@ -377,7 +377,7 @@ public class BuildCraftCore extends BuildCraftMod {
 		}
 
 		buildToolBlock = new BlockBuildTool();
-		buildToolBlock.setBlockName("buildToolBlock");
+		buildToolBlock.setUnlocalizedName("buildToolBlock");
 		BCRegistry.INSTANCE.registerBlock(buildToolBlock, true);
 
 		engineBlock = (BlockEngine) CompatHooks.INSTANCE.getBlock(BlockEngine.class);
@@ -386,10 +386,10 @@ public class BuildCraftCore extends BuildCraftMod {
 		BCRegistry.INSTANCE.registerTileEntity(TileEngineWood.class, "net.minecraft.src.buildcraft.energy.TileEngineWood");
 
 		markerBlock = (BlockMarker) CompatHooks.INSTANCE.getBlock(BlockMarker.class);
-		BCRegistry.INSTANCE.registerBlock(markerBlock.setBlockName("markerBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(markerBlock.setUnlocalizedName("markerBlock"), false);
 
 		pathMarkerBlock = (BlockPathMarker) CompatHooks.INSTANCE.getBlock(BlockPathMarker.class);
-		BCRegistry.INSTANCE.registerBlock(pathMarkerBlock.setBlockName("pathMarkerBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(pathMarkerBlock.setUnlocalizedName("pathMarkerBlock"), false);
 
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -612,7 +612,7 @@ public class BuildCraftCore extends BuildCraftMod {
 			BuildCraftCore.blueLaserTexture = event.map.registerIcon("buildcraftcore:laserBox/blockBlueLaser");
 			BuildCraftCore.stripesLaserTexture = event.map.registerIcon("buildcraftcore:laserBox/blockStripesLaser");
 			BuildCraftCore.transparentTexture = event.map.registerIcon("buildcraftcore:misc/transparent");
-			RenderLEDTile.registerBlockIcons(event.map);
+			RenderLEDTile.registerIcons(event.map);
 		}
 	}
 

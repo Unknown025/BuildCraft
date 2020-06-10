@@ -142,28 +142,28 @@ public class BuildCraftFactory extends BuildCraftMod {
 		reloadConfig(ConfigManager.RestartRequirement.GAME);
 
 		miningWellBlock = (BlockMiningWell) CompatHooks.INSTANCE.getBlock(BlockMiningWell.class);
-		if (BCRegistry.INSTANCE.registerBlock(miningWellBlock.setBlockName("miningWellBlock"), false)) {
+		if (BCRegistry.INSTANCE.registerBlock(miningWellBlock.setUnlocalizedName("miningWellBlock"), false)) {
 			plainPipeBlock = new BlockPlainPipe();
-			BCRegistry.INSTANCE.registerBlock(plainPipeBlock.setBlockName("plainPipeBlock"), true);
+			BCRegistry.INSTANCE.registerBlock(plainPipeBlock.setUnlocalizedName("plainPipeBlock"), true);
 		}
 
 		autoWorkbenchBlock = (BlockAutoWorkbench) CompatHooks.INSTANCE.getBlock(BlockAutoWorkbench.class);
-		BCRegistry.INSTANCE.registerBlock(autoWorkbenchBlock.setBlockName("autoWorkbenchBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(autoWorkbenchBlock.setUnlocalizedName("autoWorkbenchBlock"), false);
 
 		tankBlock = (BlockTank) CompatHooks.INSTANCE.getBlock(BlockTank.class);
-		BCRegistry.INSTANCE.registerBlock(tankBlock.setBlockName("tankBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(tankBlock.setUnlocalizedName("tankBlock"), false);
 
 		pumpBlock = (BlockPump) CompatHooks.INSTANCE.getBlock(BlockPump.class);
-		BCRegistry.INSTANCE.registerBlock(pumpBlock.setBlockName("pumpBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(pumpBlock.setUnlocalizedName("pumpBlock"), false);
 
 		floodGateBlock = (BlockFloodGate) CompatHooks.INSTANCE.getBlock(BlockFloodGate.class);
-		BCRegistry.INSTANCE.registerBlock(floodGateBlock.setBlockName("floodGateBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(floodGateBlock.setUnlocalizedName("floodGateBlock"), false);
 
 		refineryBlock = (BlockRefinery) CompatHooks.INSTANCE.getBlock(BlockRefinery.class);
-		BCRegistry.INSTANCE.registerBlock(refineryBlock.setBlockName("refineryBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(refineryBlock.setUnlocalizedName("refineryBlock"), false);
 
 		hopperBlock = (BlockHopper) CompatHooks.INSTANCE.getBlock(BlockHopper.class);
-		BCRegistry.INSTANCE.registerBlock(hopperBlock.setBlockName("blockHopper"), false);
+		BCRegistry.INSTANCE.registerBlock(hopperBlock.setUnlocalizedName("blockHopper"), false);
 
 		FactoryProxy.proxy.initializeEntityRenders();
 

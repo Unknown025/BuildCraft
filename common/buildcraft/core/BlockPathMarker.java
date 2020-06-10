@@ -44,8 +44,8 @@ public class BlockPathMarker extends BlockMarker {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister par1IconRegister) {
-		super.registerBlockIcons(par1IconRegister);
+	public void registerIcons(IIconRegister par1IconRegister) {
+		super.registerIcons(par1IconRegister);
 		activeMarker = par1IconRegister.registerIcon(ResourceUtils.getObjectPrefix(Block.blockRegistry.getNameForObject(this)) + "/active");
 	}
 }

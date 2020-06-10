@@ -95,7 +95,7 @@ public class TileFiller extends TileAbstractBuilder implements IHasWork, IContro
 
 	private void initTemplate() {
 		if (currentPattern != null && box.isInitialized() && box.sizeX() > 0 && box.sizeY() > 0 && box.sizeZ() > 0) {
-			currentTemplate = currentPattern.getTemplateBuilder(box, getWorldObj(), patternParameters);
+			currentTemplate = currentPattern.getTemplateBuilder(box, getWorld(), patternParameters);
 			currentTemplate.blueprint.excavate = excavate;
 		}
 	}
@@ -335,11 +335,11 @@ public class TileFiller extends TileAbstractBuilder implements IHasWork, IContro
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -381,7 +381,7 @@ public class TileFiller extends TileAbstractBuilder implements IHasWork, IContro
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 

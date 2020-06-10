@@ -90,7 +90,7 @@ public class PipePowerWood extends Pipe<PipeTransportPower> implements IPipeTran
 			}
 		}
 
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			// We only do the isRemote check now to get a list
 			// of power sources for client-side rendering.
 			return;

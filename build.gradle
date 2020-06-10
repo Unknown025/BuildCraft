@@ -37,6 +37,8 @@ minecraft {
     // replacing stuff in the source
     replace '@VERSION@', project.version
     replace '@MC_VERSION@', version
+
+    mappings = "snapshot_20140925"
 }
 
 // configure  the source folders

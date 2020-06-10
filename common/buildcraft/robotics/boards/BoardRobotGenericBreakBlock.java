@@ -33,11 +33,11 @@ public abstract class BoardRobotGenericBreakBlock extends BoardRobotGenericSearc
 				@Override
 				public boolean matches(ItemStack stack) {
 					return stack != null
-							&& (stack.getItemDamage() < stack.getMaxDamage())
+							&& (stack.getMetadata() < stack.getMaxDurability())
 							&& isExpectedTool(stack);
 				}
 			}));
-		} else if (robot.getHeldItem() != null && robot.getHeldItem().getItemDamage() >= robot.getHeldItem().getMaxDamage()) {
+		} else if (robot.getHeldItem() != null && robot.getHeldItem().getMetadata() >= robot.getHeldItem().getMaxDurability()) {
 			startDelegateAI(new AIRobotGotoStationAndUnload(robot));
 		} else if (blockFound() != null) {
 			startDelegateAI(new AIRobotBreak(robot, blockFound()));

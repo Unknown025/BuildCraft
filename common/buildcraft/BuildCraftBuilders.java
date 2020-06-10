@@ -525,22 +525,22 @@ public class BuildCraftBuilders extends BuildCraftMod {
 		BCRegistry.INSTANCE.registerItem(blueprintItem, false);
 
 		quarryBlock = (BlockQuarry) CompatHooks.INSTANCE.getBlock(BlockQuarry.class);
-		BCRegistry.INSTANCE.registerBlock(quarryBlock.setBlockName("machineBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(quarryBlock.setUnlocalizedName("machineBlock"), false);
 
 		fillerBlock = (BlockFiller) CompatHooks.INSTANCE.getBlock(BlockFiller.class);
-		BCRegistry.INSTANCE.registerBlock(fillerBlock.setBlockName("fillerBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(fillerBlock.setUnlocalizedName("fillerBlock"), false);
 
 		frameBlock = new BlockFrame();
-		BCRegistry.INSTANCE.registerBlock(frameBlock.setBlockName("frameBlock"), true);
+		BCRegistry.INSTANCE.registerBlock(frameBlock.setUnlocalizedName("frameBlock"), true);
 
 		builderBlock = (BlockBuilder) CompatHooks.INSTANCE.getBlock(BlockBuilder.class);
-		BCRegistry.INSTANCE.registerBlock(builderBlock.setBlockName("builderBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(builderBlock.setUnlocalizedName("builderBlock"), false);
 
 		architectBlock = (BlockArchitect) CompatHooks.INSTANCE.getBlock(BlockArchitect.class);
-		BCRegistry.INSTANCE.registerBlock(architectBlock.setBlockName("architectBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(architectBlock.setUnlocalizedName("architectBlock"), false);
 
 		libraryBlock = (BlockBlueprintLibrary) CompatHooks.INSTANCE.getBlock(BlockBlueprintLibrary.class);
-		BCRegistry.INSTANCE.registerBlock(libraryBlock.setBlockName("libraryBlock"), false);
+		BCRegistry.INSTANCE.registerBlock(libraryBlock.setUnlocalizedName("libraryBlock"), false);
 
 		BCRegistry.INSTANCE.registerTileEntity(TileQuarry.class, "Machine");
 		BCRegistry.INSTANCE.registerTileEntity(TileMarker.class, "Marker");
@@ -551,7 +551,7 @@ public class BuildCraftBuilders extends BuildCraftMod {
 		BCRegistry.INSTANCE.registerTileEntity(TileBlueprintLibrary.class, "net.minecraft.src.builders.TileBlueprintLibrary");
 
 		constructionMarkerBlock = (BlockConstructionMarker) CompatHooks.INSTANCE.getBlock(BlockConstructionMarker.class);
-		BCRegistry.INSTANCE.registerBlock(constructionMarkerBlock.setBlockName("constructionMarkerBlock"),
+		BCRegistry.INSTANCE.registerBlock(constructionMarkerBlock.setUnlocalizedName("constructionMarkerBlock"),
 				ItemConstructionMarker.class, false);
 
 		BCRegistry.INSTANCE.registerTileEntity(TileConstructionMarker.class, "net.minecraft.src.builders.TileConstructionMarker");

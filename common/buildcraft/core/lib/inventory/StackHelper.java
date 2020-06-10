@@ -111,7 +111,7 @@ public class StackHelper {
 			if (idBase.length > 0) {
 				for (int id : idBase) {
 					for (ItemStack itemstack : OreDictionary.getOres(OreDictionary.getOreName(id))) {
-						if (comparison.getItem() == itemstack.getItem() && (itemstack.getItemDamage() == OreDictionary.WILDCARD_VALUE || comparison.getItemDamage() == itemstack.getItemDamage())) {
+						if (comparison.getItem() == itemstack.getItem() && (itemstack.getMetadata() == OreDictionary.WILDCARD_VALUE || comparison.getMetadata() == itemstack.getMetadata())) {
 							return true;
 						}
 					}
@@ -126,7 +126,7 @@ public class StackHelper {
 		if (oreIDs.length > 0) {
 			for (int id : oreIDs) {
 				for (ItemStack itemstack : OreDictionary.getOres(OreDictionary.getOreName(id))) {
-					if (comparison.getItem() == itemstack.getItem() && (itemstack.getItemDamage() == OreDictionary.WILDCARD_VALUE || comparison.getItemDamage() == itemstack.getItemDamage())) {
+					if (comparison.getItem() == itemstack.getItem() && (itemstack.getMetadata() == OreDictionary.WILDCARD_VALUE || comparison.getMetadata() == itemstack.getMetadata())) {
 						return true;
 					}
 				}
@@ -169,7 +169,7 @@ public class StackHelper {
 	 */
 	public static boolean isEqualItem(final ItemStack a, final ItemStack b) {
 		if (isMatchingItem(a, b, false, true)) {
-			return isWildcard(a) || isWildcard(b) || a.getItemDamage() == b.getItemDamage();
+			return isWildcard(a) || isWildcard(b) || a.getMetadata() == b.getMetadata();
 		} else {
 			return false;
 		}
@@ -200,7 +200,7 @@ public class StackHelper {
 		}
 
 		if (matchDamage && a.getHasSubtypes()) {
-			if (a.getItemDamage() != b.getItemDamage()) {
+			if (a.getMetadata() != b.getMetadata()) {
 				return false;
 			}
 		}
@@ -214,7 +214,7 @@ public class StackHelper {
 	}
 
 	public static boolean isWildcard(ItemStack stack) {
-		return isWildcard(stack.getItemDamage());
+		return isWildcard(stack.getMetadata());
 	}
 
 	public static boolean isWildcard(int damage) {

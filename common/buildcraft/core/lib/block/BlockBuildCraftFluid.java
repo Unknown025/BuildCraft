@@ -57,7 +57,7 @@ public class BlockBuildCraftFluid extends BlockFluidClassic {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
+	public void registerIcons(IIconRegister iconRegister) {
 		String prefix = ResourceUtils.getObjectPrefix(Block.blockRegistry.getNameForObject(this));
 		prefix = prefix.substring(0, prefix.indexOf(":") + 1) + "fluids/";
 		this.theIcon = new IIcon[]{iconRegister.registerIcon(prefix + fluidName + "_still"),

@@ -50,7 +50,7 @@ public class ActionRobotGotoStation extends BCStatement implements IActionIntern
 	@Override
 	public void actionActivate(IStatementContainer container, IStatementParameter[] parameters) {
 		IRobotRegistry registry = RobotManager.registryProvider.getRegistry(container.getTile()
-				.getWorldObj());
+				.getWorld());
 
 		List<DockingStation> stations = RobotUtils.getStations(container.getTile());
 

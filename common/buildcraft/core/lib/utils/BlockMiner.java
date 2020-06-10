@@ -43,11 +43,11 @@ public class BlockMiner {
 
 	public void mineStack(ItemStack stack) {
 		// First, try to add to a nearby chest
-		stack.stackSize -= Utils.addToRandomInventoryAround(owner.getWorldObj(), owner.xCoord, owner.yCoord, owner.zCoord, stack);
+		stack.stackSize -= Utils.addToRandomInventoryAround(owner.getWorld(), owner.xCoord, owner.yCoord, owner.zCoord, stack);
 
 		// Second, try to add to adjacent pipes
 		if (stack.stackSize > 0) {
-			stack.stackSize -= Utils.addToRandomInjectableAround(owner.getWorldObj(), owner.xCoord, owner.yCoord, owner.zCoord, ForgeDirection.UNKNOWN, stack);
+			stack.stackSize -= Utils.addToRandomInjectableAround(owner.getWorld(), owner.xCoord, owner.yCoord, owner.zCoord, ForgeDirection.UNKNOWN, stack);
 		}
 
 		// Lastly, throw the object away
@@ -56,7 +56,7 @@ public class BlockMiner {
 			float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
 			float f2 = world.rand.nextFloat() * 0.8F + 0.1F;
 
-			EntityItem entityitem = new EntityItem(owner.getWorldObj(), owner.xCoord + f, owner.yCoord + f1 + 0.5F, owner.zCoord + f2, stack);
+			EntityItem entityitem = new EntityItem(owner.getWorld(), owner.xCoord + f, owner.yCoord + f1 + 0.5F, owner.zCoord + f2, stack);
 
 			entityitem.lifespan = BuildCraftCore.itemLifespan * 20;
 			entityitem.delayBeforeCanPickup = 10;
@@ -65,7 +65,7 @@ public class BlockMiner {
 			entityitem.motionX = (float) world.rand.nextGaussian() * f3;
 			entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 1.0F;
 			entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
-			owner.getWorldObj().spawnEntityInWorld(entityitem);
+			owner.getWorld().spawnEntityInWorld(entityitem);
 		}
 	}
 
@@ -93,7 +93,7 @@ public class BlockMiner {
 			int meta = world.getBlockMetadata(x, y, z);
 
 			BlockEvent.BreakEvent breakEvent = new BlockEvent.BreakEvent(x, y, z, world, block, meta,
-					CoreProxy.proxy.getBuildCraftPlayer((WorldServer) owner.getWorldObj(), owner.xCoord, owner.yCoord, owner.zCoord).get());
+					CoreProxy.proxy.getBuildCraftPlayer((WorldServer) owner.getWorld(), owner.xCoord, owner.yCoord, owner.zCoord).get());
 			MinecraftForge.EVENT_BUS.post(breakEvent);
 
 			if (!breakEvent.isCanceled()) {

@@ -362,7 +362,7 @@ public class TileAssemblyTable extends TileLaserTableBase implements IInventory,
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 

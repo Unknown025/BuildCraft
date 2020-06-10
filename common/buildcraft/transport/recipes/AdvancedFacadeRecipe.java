@@ -69,7 +69,7 @@ public class AdvancedFacadeRecipe extends IntegrationRecipeBC {
 
 		for (ItemStack stack : expansions) {
 			if (wire == null && stack.getItem() instanceof ItemPipeWire) {
-				wire = PipeWire.fromOrdinal(stack.getItemDamage());
+				wire = PipeWire.fromOrdinal(stack.getMetadata());
 				if (!preview) {
 					stack.stackSize--;
 				}

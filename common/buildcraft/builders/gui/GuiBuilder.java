@@ -175,8 +175,8 @@ public class GuiBuilder extends GuiAdvancedInterface {
 	}
 
 	@Override
-	protected void mouseMovedOrUp(int mouseX, int mouseY, int eventType) {
-		super.mouseMovedOrUp(mouseX, mouseY, eventType);
+	protected void mouseReleased(int mouseX, int mouseY, int eventType) {
+		super.mouseReleased(mouseX, mouseY, eventType);
 		if (this.selectedButton != null && eventType == 0) {
 			this.selectedButton.mouseReleased(mouseX, mouseY);
 			this.selectedButton = null;
@@ -218,10 +218,10 @@ public class GuiBuilder extends GuiAdvancedInterface {
 				return;
 			}
 			// hovered
-			this.field_146123_n = x >= this.xPosition && y >= this.yPosition && x < this.xPosition + this.width && y < this.yPosition + this.height;
+			this.hovered = x >= this.xPosition && y >= this.yPosition && x < this.xPosition + this.width && y < this.yPosition + this.height;
 
 			mc.renderEngine.bindTexture(BLUEPRINT_TEXTURE);
-			drawTexturedModalRect(xPosition, yPosition, 0, (clicked ? 1 : this.field_146123_n ? 2 : 0) * 18, 18, 18);
+			drawTexturedModalRect(xPosition, yPosition, 0, (clicked ? 1 : this.hovered ? 2 : 0) * 18, 18, 18);
 			mouseDragged(mc, x, y);
 		}
 	}

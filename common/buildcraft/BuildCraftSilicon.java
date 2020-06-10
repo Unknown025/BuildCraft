@@ -89,15 +89,15 @@ public class BuildCraftSilicon extends BuildCraftMod {
 		}
 
 		laserBlock = (BlockLaser) CompatHooks.INSTANCE.getBlock(BlockLaser.class);
-		laserBlock.setBlockName("laserBlock");
+		laserBlock.setUnlocalizedName("laserBlock");
 		BCRegistry.INSTANCE.registerBlock(laserBlock, false);
 
 		assemblyTableBlock = (BlockLaserTable) CompatHooks.INSTANCE.getBlock(BlockLaserTable.class);
-		assemblyTableBlock.setBlockName("laserTableBlock");
+		assemblyTableBlock.setUnlocalizedName("laserTableBlock");
 		BCRegistry.INSTANCE.registerBlock(assemblyTableBlock, ItemLaserTable.class, false);
 
 		packagerBlock = (BlockPackager) CompatHooks.INSTANCE.getBlock(BlockPackager.class);
-		packagerBlock.setBlockName("packagerBlock");
+		packagerBlock.setUnlocalizedName("packagerBlock");
 		BCRegistry.INSTANCE.registerBlock(packagerBlock, false);
 
 		redstoneChipset = new ItemRedstoneChipset();

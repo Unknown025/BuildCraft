@@ -37,7 +37,7 @@ public class StripesHandlerShears implements IStripesHandler {
 		if (block instanceof IShearable) {
 			IShearable shearableBlock = (IShearable) block;
 			if (shearableBlock.isShearable(stack, world, x, y, z)) {
-				world.playSoundEffect(x, y, z, Block.soundTypeGrass.getBreakSound(), 1, 1);
+				world.playSoundEffect(x, y, z, Block.soundTypeGrass.getDigResourcePath(), 1, 1);
 				List<ItemStack> drops = shearableBlock.onSheared(stack, world, x, y, z,
 						EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, stack));
 				world.setBlockToAir(x, y, z);

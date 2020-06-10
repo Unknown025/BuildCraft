@@ -30,8 +30,8 @@ public abstract class BlockHatched extends BlockBuildCraft {
 	}
 
 	@Override
-	public void registerBlockIcons(IIconRegister register) {
-		super.registerBlockIcons(register);
+	public void registerIcons(IIconRegister register) {
+		super.registerIcons(register);
 		String base = ResourceUtils.getObjectPrefix(Block.blockRegistry.getNameForObject(this));
 		itemHatch = register.registerIcon(base + "/item_hatch");
 	}

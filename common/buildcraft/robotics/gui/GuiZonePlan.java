@@ -289,8 +289,8 @@ public class GuiZonePlan extends GuiAdvancedInterface {
 	}
 
 	@Override
-	protected void mouseMovedOrUp(int mouseX, int mouseY, int eventType) {
-		super.mouseMovedOrUp(mouseX, mouseY, eventType);
+	protected void mouseReleased(int mouseX, int mouseY, int eventType) {
+		super.mouseReleased(mouseX, mouseY, eventType);
 
 		if (eventType != -1 && inSelection) {
 			boolean val = tool.displayString.equals("+");

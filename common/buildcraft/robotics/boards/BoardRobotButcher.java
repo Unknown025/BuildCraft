@@ -45,7 +45,7 @@ public class BoardRobotButcher extends RedstoneBoardRobot {
 					return stack.getItem() instanceof ItemSword;
 				}
 			}));
-		} else if (robot.getHeldItem() != null && robot.getHeldItem().getItemDamage() >= robot.getHeldItem().getMaxDamage()) {
+		} else if (robot.getHeldItem() != null && robot.getHeldItem().getMetadata() >= robot.getHeldItem().getMaxDurability()) {
 			startDelegateAI(new AIRobotGotoStationAndUnload(robot));
 		} else {
 			startDelegateAI(new AIRobotSearchEntity(robot, new IEntityFilter() {

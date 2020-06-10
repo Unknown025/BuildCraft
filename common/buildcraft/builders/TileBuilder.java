@@ -415,7 +415,7 @@ public class TileBuilder extends TileAbstractBuilder implements IHasWork, IFluid
 				}
 			}
 			if (dropBlueprint) {
-				InvUtils.dropItems(getWorldObj(), getStackInSlot(0), xCoord, yCoord, zCoord);
+				InvUtils.dropItems(getWorld(), getStackInSlot(0), xCoord, yCoord, zCoord);
 			}
 
 			setInventorySlotContents(0, null);
@@ -559,11 +559,11 @@ public class TileBuilder extends TileAbstractBuilder implements IHasWork, IFluid
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -591,7 +591,7 @@ public class TileBuilder extends TileAbstractBuilder implements IHasWork, IFluid
 		iterateBpt(false);
 
 		if (mode != Mode.Off) {
-			if (getWorldObj().getWorldInfo().getGameType() == GameType.CREATIVE
+			if (getWorld().getWorldInfo().getGameType() == GameType.CREATIVE
 					|| getBattery().getEnergyStored() > POWER_ACTIVATION) {
 				build();
 			}
@@ -674,7 +674,7 @@ public class TileBuilder extends TileAbstractBuilder implements IHasWork, IFluid
 					data.writeMedium(items.size());
 					for (RequirementItemStack rb : items) {
 						data.writeShort(Item.getIdFromItem(rb.stack.getItem()));
-						data.writeShort(rb.stack.getItemDamage());
+						data.writeShort(rb.stack.getMetadata());
 						data.writeMedium((rb.stack.hasTagCompound() ? 0x800000 : 0x000000) | Math.min(0x7FFFFF, rb.size));
 						if (rb.stack.hasTagCompound()) {
 							NetworkUtils.writeNBT(data, rb.stack.getTagCompound());
@@ -693,7 +693,7 @@ public class TileBuilder extends TileAbstractBuilder implements IHasWork, IFluid
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 

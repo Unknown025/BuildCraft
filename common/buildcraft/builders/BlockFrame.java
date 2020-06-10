@@ -229,7 +229,7 @@ public class BlockFrame extends Block implements IFramePipeConnection {
 	}
 
 	@Override
-	public void registerBlockIcons(IIconRegister register) {
+	public void registerIcons(IIconRegister register) {
 		blockIcon = register.registerIcon("buildcraftbuilders:frameBlock/default");
 	}
 }

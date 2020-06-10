@@ -162,7 +162,7 @@ public class PipeItemsObsidian extends Pipe<PipeTransportItems> implements IEner
 			return false;
 		}
 
-		List<Entity> discoveredEntities = container.getWorldObj().getEntitiesWithinAABB(Entity.class, box);
+		List<Entity> discoveredEntities = container.getWorld().getEntitiesWithinAABB(Entity.class, box);
 
 		for (Entity entity : discoveredEntities) {
 			if (canSuck(entity, distance)) {
@@ -193,14 +193,14 @@ public class PipeItemsObsidian extends Pipe<PipeTransportItems> implements IEner
 	}
 
 	public void pullItemIntoPipe(Entity entity, int distance) {
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 
 		ForgeDirection orientation = getOpenOrientation().getOpposite();
 
 		if (orientation != ForgeDirection.UNKNOWN) {
-			container.getWorldObj().playSoundAtEntity(entity, "random.pop", 0.2F, ((container.getWorldObj().rand.nextFloat() - container.getWorldObj().rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+			container.getWorld().playSoundAtEntity(entity, "random.pop", 0.2F, ((container.getWorld().rand.nextFloat() - container.getWorld().rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 
 			ItemStack stack;
 
@@ -214,7 +214,7 @@ public class PipeItemsObsidian extends Pipe<PipeTransportItems> implements IEner
 					return;
 				}
 
-				TransportProxy.proxy.obsidianPipePickup(container.getWorldObj(), item, this.container);
+				TransportProxy.proxy.obsidianPipePickup(container.getWorld(), item, this.container);
 
 				int energyUsed = Math.min(10 * contained.stackSize * distance, battery.getEnergyStored());
 

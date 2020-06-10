@@ -189,7 +189,7 @@ public class MappingRegistry {
 
 		// Then, look at the nbt compound contained in this nbt (even if it's a
 		// stack) and checks for stacks in it.
-		for (Object keyO : nbt.func_150296_c()) {
+		for (Object keyO : nbt.getKeySet()) {
 			String key = (String) keyO;
 
 			if (nbt.getTag(key) instanceof NBTTagCompound) {
@@ -199,7 +199,7 @@ public class MappingRegistry {
 			if (nbt.getTag(key) instanceof NBTTagList) {
 				NBTTagList list = (NBTTagList) nbt.getTag(key);
 
-				if (list.func_150303_d() == Constants.NBT.TAG_COMPOUND) {
+				if (list.getTagType() == Constants.NBT.TAG_COMPOUND) {
 					for (int i = 0; i < list.tagCount(); ++i) {
 						scanAndTranslateStacksToRegistry(list.getCompoundTagAt(i));
 					}
@@ -217,7 +217,7 @@ public class MappingRegistry {
 
 		// Then, look at the nbt compound contained in this nbt (even if it's a
 		// stack) and checks for stacks in it.
-		for (Object keyO : new HashSet(nbt.func_150296_c())) {
+		for (Object keyO : new HashSet(nbt.getKeySet())) {
 			String key = (String) keyO;
 
 			if (nbt.getTag(key) instanceof NBTTagCompound) {
@@ -231,7 +231,7 @@ public class MappingRegistry {
 			if (nbt.getTag(key) instanceof NBTTagList) {
 				NBTTagList list = (NBTTagList) nbt.getTag(key);
 
-				if (list.func_150303_d() == Constants.NBT.TAG_COMPOUND) {
+				if (list.getTagType() == Constants.NBT.TAG_COMPOUND) {
 					for (int i = list.tagCount() - 1; i >= 0; --i) {
 						try {
 							scanAndTranslateStacksToWorld(list.getCompoundTagAt(i));

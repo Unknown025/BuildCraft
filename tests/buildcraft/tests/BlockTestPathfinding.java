@@ -34,7 +34,7 @@ public class BlockTestPathfinding extends BlockContainer {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister par1IconRegister) {
+	public void registerIcons(IIconRegister par1IconRegister) {
 		this.blockIcon = par1IconRegister.registerIcon("buildcraft:testcase");
 	}
 }

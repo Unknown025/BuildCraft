@@ -39,7 +39,7 @@ public class BuildingSlotMapIterator {
 		this.slotMap = builderBlueprint.buildList;
 		this.buildStageOccurences = builderBlueprint.buildStageOccurences;
 		this.isCreative = builder == null
-				|| builder.getWorldObj().getWorldInfo().getGameType() == WorldSettings.GameType.CREATIVE;
+				|| builder.getWorld().getWorldInfo().getGameType() == WorldSettings.GameType.CREATIVE;
 
 		reset();
 	}

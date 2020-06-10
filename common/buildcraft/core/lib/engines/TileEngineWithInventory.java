@@ -74,11 +74,11 @@ public abstract class TileEngineWithInventory extends TileEngineBase implements 
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public abstract class TileEngineWithInventory extends TileEngineBase implements 
 	// ISidedInventory
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(int side) {
 		if (side == orientation.ordinal()) {
 			return new int[0];
 		} else {

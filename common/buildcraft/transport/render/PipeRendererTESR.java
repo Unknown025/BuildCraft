@@ -236,7 +236,7 @@ public class PipeRendererTESR extends TileEntitySpecialRenderer {
 	}
 
 	private void renderPluggables(TileGenericPipe pipe, double x, double y, double z) {
-		TileEntityRendererDispatcher.instance.field_147553_e.bindTexture(TextureMap.locationBlocksTexture);
+		TileEntityRendererDispatcher.instance.renderEngine.bindTexture(TextureMap.locationBlocksTexture);
 
 		for (ForgeDirection direction : ForgeDirection.VALID_DIRECTIONS) {
 			PipePluggable pluggable = pipe.getPipePluggable(direction);

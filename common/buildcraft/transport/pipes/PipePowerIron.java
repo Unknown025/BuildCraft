@@ -86,7 +86,7 @@ public class PipePowerIron extends Pipe<PipeTransportPower> {
 
 	public void setMode(PowerMode mode) {
 		if (mode.ordinal() != container.getBlockMetadata()) {
-			container.getWorldObj().setBlockMetadataWithNotify(container.xCoord, container.yCoord, container.zCoord, mode.ordinal(), 3);
+			container.getWorld().setBlockMetadataWithNotify(container.xCoord, container.yCoord, container.zCoord, mode.ordinal(), 3);
 			container.scheduleRenderUpdate();
 		}
 	}

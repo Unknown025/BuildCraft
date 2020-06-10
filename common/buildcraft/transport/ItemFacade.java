@@ -157,7 +157,7 @@ public class ItemFacade extends ItemBuildCraft implements IFacadeItem, IPipePlug
 		super(BuildCraftTransport.showAllFacadesCreative ? BCCreativeTab.get("facades") : BCCreativeTab.get("main"));
 
 		setHasSubtypes(true);
-		setMaxDamage(0);
+		setMaxDurability(0);
 	}
 
 	@Override
@@ -288,7 +288,7 @@ public class ItemFacade extends ItemBuildCraft implements IFacadeItem, IPipePlug
 		}
 		for (ItemStack stack : stacks) {
 			try {
-				int i = stack.getItemDamage();
+				int i = stack.getMetadata();
 
 				if (block.hasTileEntity(i)) {
 					continue;
@@ -388,7 +388,7 @@ public class ItemFacade extends ItemBuildCraft implements IFacadeItem, IPipePlug
 		if (nbt.hasKey("meta_alt")) {
 			metadataAlt = nbt.getInteger("meta_alt");
 		} else {
-			metadataAlt = stack.getItemDamage() & 0x0000F;
+			metadataAlt = stack.getMetadata() & 0x0000F;
 		}
 		if (nbt.hasKey("wire")) {
 			wire = PipeWire.fromOrdinal(nbt.getInteger("wire"));
@@ -462,9 +462,9 @@ public class ItemFacade extends ItemBuildCraft implements IFacadeItem, IPipePlug
 		}
 
 		String recipeId = "buildcraft:facade{" + Block.blockRegistry.getNameForObject(block) + "#"
-				+ itemStack.getItemDamage() + "}";
+				+ itemStack.getMetadata() + "}";
 
-		ItemStack facade = getFacadeForBlock(block, itemStack.getItemDamage());
+		ItemStack facade = getFacadeForBlock(block, itemStack.getMetadata());
 
 		if (!allFacadeIDs.contains(recipeId)) {
 			allFacadeIDs.add(recipeId);

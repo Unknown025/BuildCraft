@@ -63,7 +63,7 @@ public class TileChargingTable extends TileLaserTableBase implements IHasWork {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 

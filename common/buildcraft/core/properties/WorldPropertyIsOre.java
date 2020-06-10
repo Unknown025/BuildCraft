@@ -32,7 +32,7 @@ public class WorldPropertyIsOre extends WorldProperty {
 				ArrayList<ItemStack> oreStacks = OreDictionary.getOres(oreName);
 				if (oreStacks.size() > 0) {
 					Block block = Block.getBlockFromItem(oreStacks.get(0).getItem());
-					int meta = oreStacks.get(0).getItemDamage();
+					int meta = oreStacks.get(0).getMetadata();
 					if (meta >= 16 || meta < 0) {
 						meta = 0;
 					}

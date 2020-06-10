@@ -171,7 +171,7 @@ public class BuildCraftMod {
 	}
 
 	public void sendToPlayersNear(Packet packet, TileEntity tileEntity, int maxDistance) {
-		sender.add(new LocationSendRequest(this, packet, tileEntity.getWorldObj().provider.dimensionId, tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord, maxDistance));
+		sender.add(new LocationSendRequest(this, packet, tileEntity.getWorld().provider.dimensionId, tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord, maxDistance));
 	}
 
 	public void sendToPlayersNear(Packet packet, TileEntity tileEntity) {

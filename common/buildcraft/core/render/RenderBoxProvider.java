@@ -45,7 +45,7 @@ public class RenderBoxProvider extends TileEntitySpecialRenderer {
 			for (Box b : ((IBoxesProvider) tileentity).getBoxes()) {
 				if (b.isVisible) {
 					RenderBox.doRender(
-							TileEntityRendererDispatcher.instance.field_147553_e,
+							TileEntityRendererDispatcher.instance.renderEngine,
 							getTexture(b.kind), b);
 				}
 			}
@@ -54,7 +54,7 @@ public class RenderBoxProvider extends TileEntitySpecialRenderer {
 
 			if (b.isVisible) {
 				RenderBox.doRender(
-						TileEntityRendererDispatcher.instance.field_147553_e,
+						TileEntityRendererDispatcher.instance.renderEngine,
 						getTexture(b.kind), b);
 			}
 		}

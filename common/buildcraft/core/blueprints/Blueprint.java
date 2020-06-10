@@ -75,8 +75,8 @@ public class Blueprint extends BlueprintBase {
 	@Override
 	public void readFromWorld(IBuilderContext context, TileEntity anchorTile, int x, int y, int z) {
 		BptContext bptContext = (BptContext) context;
-		Block block = anchorTile.getWorldObj().getBlock(x, y, z);
-		int meta = anchorTile.getWorldObj().getBlockMetadata(x, y, z);
+		Block block = anchorTile.getWorld().getBlock(x, y, z);
+		int meta = anchorTile.getWorld().getBlockMetadata(x, y, z);
 
 		if (context.world().isAirBlock(x, y, z)) {
 			// Although no schematic will be returned for the block "air" by

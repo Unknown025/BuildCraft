@@ -92,10 +92,10 @@ public class LensPluggable extends PipePluggable {
 	}
 
 	public LensPluggable(ItemStack stack) {
-		color = stack.getItemDamage() & 15;
-		isFilter = stack.getItemDamage() >= 16;
-		if (stack.getItemDamage() >= 32) {
-			isFilter = stack.getItemDamage() == 33;
+		color = stack.getMetadata() & 15;
+		isFilter = stack.getMetadata() >= 16;
+		if (stack.getMetadata() >= 32) {
+			isFilter = stack.getMetadata() == 33;
 			color = -1;
 		}
 	}

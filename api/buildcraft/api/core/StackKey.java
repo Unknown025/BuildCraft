@@ -81,7 +81,7 @@ public final class StackKey {
 		}
 		if (stack != null) {
 			if (stack.getItem() != k.stack.getItem() ||
-					stack.getHasSubtypes() && stack.getItemDamage() != k.stack.getItemDamage() ||
+					stack.getHasSubtypes() && stack.getMetadata() != k.stack.getMetadata() ||
 					!objectsEqual(stack.getTagCompound(), k.stack.getTagCompound())) {
 				return false;
 			}
@@ -101,7 +101,7 @@ public final class StackKey {
 		int result = 7;
 		if (stack != null) {
 			result = 31 * result + stack.getItem().hashCode();
-			result = 31 * result + stack.getItemDamage();
+			result = 31 * result + stack.getMetadata();
 			result = 31 * result + objectHashCode(stack.getTagCompound());
 		}
 		result = 31 * result + 7;

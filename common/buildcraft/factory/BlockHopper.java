@@ -78,7 +78,7 @@ public class BlockHopper extends BlockBuildCraft implements IComparatorInventory
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister par1IconRegister) {
+	public void registerIcons(IIconRegister par1IconRegister) {
 		icon = par1IconRegister.registerIcon("buildcraftfactory:hopperBlock/bottom");
 	}
 

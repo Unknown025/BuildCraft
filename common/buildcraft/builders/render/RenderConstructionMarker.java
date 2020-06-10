@@ -76,7 +76,7 @@ public class RenderConstructionMarker extends RenderBoxProvider {
 			GL11.glPushMatrix();
 			RenderLaser
 					.doRenderLaser(
-							TileEntityRendererDispatcher.instance.field_147553_e,
+							TileEntityRendererDispatcher.instance.renderEngine,
 							marker.laser, EntityLaser.LASER_TEXTURES[4]);
 			GL11.glPopMatrix();
 		}

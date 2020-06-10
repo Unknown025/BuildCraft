@@ -156,7 +156,7 @@ public class TileEngineStone extends TileEngineWithInventory {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 }

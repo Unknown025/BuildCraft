@@ -215,12 +215,12 @@ public class TileProgrammingTable extends TileLaserTableBase implements IInvento
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(int side) {
 		return new int[]{0, 1};
 	}
 

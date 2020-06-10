@@ -214,7 +214,7 @@ public class PipeTransportFluidsRenderer extends PipeTransportRenderer<PipeTrans
 			}
 
 			DisplayFluidList d = getDisplayFluidLists(renderData.fluidID, skylight, blocklight,
-					renderData.flags, pipe.container.getWorldObj());
+					renderData.flags, pipe.container.getWorld());
 
 			if (d == null) {
 				continue;
@@ -256,7 +256,7 @@ public class PipeTransportFluidsRenderer extends PipeTransportRenderer<PipeTrans
 
 		if (renderData.amount[6] > 0) {
 			DisplayFluidList d = getDisplayFluidLists(renderData.fluidID, skylight, blocklight,
-					renderData.flags, pipe.container.getWorldObj());
+					renderData.flags, pipe.container.getWorld());
 
 			if (d != null) {
 				int stage = (int) ((float) renderData.amount[6] / (float) (trans.getCapacity()) * (LIQUID_STAGES - 1));

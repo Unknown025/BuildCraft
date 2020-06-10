@@ -71,7 +71,7 @@ public final class ListHandlerNew {
 				for (ItemStack s : stacks) {
 					if (s != null && StackHelper.isMatchingItem(s, target, true, precise)) {
 						// If precise, re-check damage
-						if (!precise || s.getItemDamage() == target.getItemDamage()) {
+						if (!precise || s.getMetadata() == target.getMetadata()) {
 							return true;
 						}
 					}

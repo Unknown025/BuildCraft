@@ -693,7 +693,7 @@ public class TileQuarry extends TileAbstractBuilder implements IHasWork, ISidedI
 	public void initialize() {
 		super.initialize();
 
-		if (!this.getWorldObj().isRemote && !box.initialized) {
+		if (!this.getWorld().isRemote && !box.initialized) {
 			setBoundaries(false);
 		}
 
@@ -766,11 +766,11 @@ public class TileQuarry extends TileAbstractBuilder implements IHasWork, ISidedI
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -876,7 +876,7 @@ public class TileQuarry extends TileAbstractBuilder implements IHasWork, ISidedI
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 
@@ -891,7 +891,7 @@ public class TileQuarry extends TileAbstractBuilder implements IHasWork, ISidedI
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(int side) {
 		return new int[]{};
 	}
 

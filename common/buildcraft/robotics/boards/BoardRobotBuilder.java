@@ -187,7 +187,7 @@ public class BoardRobotBuilder extends RedstoneBoardRobot {
 		IZone zone = robot.getZoneToWork();
 
 		for (TileConstructionMarker marker : TileConstructionMarker.currentMarkers) {
-			if (marker.getWorldObj() != robot.worldObj) {
+			if (marker.getWorld() != robot.worldObj) {
 				continue;
 			}
 			if (!marker.needsToBuild()) {

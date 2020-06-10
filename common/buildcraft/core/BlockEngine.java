@@ -18,7 +18,7 @@ public class BlockEngine extends BlockEngineBase {
 
 	public BlockEngine() {
 		super();
-		setBlockName("engineBlock");
+		setUnlocalizedName("engineBlock");
 
 		engineTiles = new Class[16];
 		names = new String[16];

@@ -39,8 +39,8 @@ public class BlockBuilder extends BlockBuildCraft {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister register) {
-		super.registerBlockIcons(register);
+	public void registerIcons(IIconRegister register) {
+		super.registerIcons(register);
 		blockTopOn = register.registerIcon("buildcraftbuilders:builderBlock/top_on");
 	}
 

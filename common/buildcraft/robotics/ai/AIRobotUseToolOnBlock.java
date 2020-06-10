@@ -57,7 +57,7 @@ public class AIRobotUseToolOnBlock extends AIRobot {
 				if (robot.getHeldItem().isItemStackDamageable()) {
 					robot.getHeldItem().damageItem(1, robot);
 
-					if (robot.getHeldItem().getItemDamage() >= robot.getHeldItem().getMaxDamage()) {
+					if (robot.getHeldItem().getMetadata() >= robot.getHeldItem().getMaxDurability()) {
 						robot.setItemInUse(null);
 					}
 				} else {

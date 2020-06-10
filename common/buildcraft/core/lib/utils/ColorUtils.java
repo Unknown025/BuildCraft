@@ -59,7 +59,7 @@ public final class ColorUtils {
 		}
 
 		if (stack.getItem() == Items.dye) {
-			return 15 - stack.getItemDamage();
+			return 15 - stack.getMetadata();
 		}
 
 		int[] itemOreIDs = OreDictionary.getOreIDs(stack);

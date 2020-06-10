@@ -38,7 +38,7 @@ public abstract class PipeTransport {
 	public abstract IPipeTile.PipeType getPipeType();
 
 	public World getWorld() {
-		return container.getWorldObj();
+		return container.getWorld();
 	}
 
 	public void readFromNBT(NBTTagCompound nbt) {

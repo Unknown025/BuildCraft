@@ -154,7 +154,7 @@ public class RenderRobot extends Render implements IItemRenderer {
 			ItemStack itemstack1 = robot.itemInUse;
 
 			if (itemstack1.getItem().requiresMultipleRenderPasses()) {
-				for (int k = 0; k < itemstack1.getItem().getRenderPasses(itemstack1.getItemDamage()); ++k) {
+				for (int k = 0; k < itemstack1.getItem().getRenderPasses(itemstack1.getMetadata()); ++k) {
 					RenderUtils.setGLColorFromInt(itemstack1.getItem().getColorFromItemStack(itemstack1, k));
 					this.renderManager.itemRenderer.renderItem(robot, itemstack1, k);
 				}
@@ -293,14 +293,14 @@ public class RenderRobot extends Render implements IItemRenderer {
 			if (nbt.hasKey("Name")) {
 				gameProfile = gameProfileCache.get(nbt.getString("Name"));
 			} else if (nbt.hasKey("SkullOwner", NBT.TAG_COMPOUND)) {
-				gameProfile = NBTUtil.func_152459_a(nbt.getCompoundTag("SkullOwner"));
+				gameProfile = NBTUtil.readGameProfileFromNBT(nbt.getCompoundTag("SkullOwner"));
 				nbt.setString("Name", gameProfile.getName());
 				gameProfileCache.put(gameProfile.getName(), gameProfile);
 			}
 		}
 
 		TileEntitySkullRenderer.field_147536_b.func_152674_a(-0.5F, -0.25F, -0.5F, 1, -90.0F,
-				wearable.getItemDamage(), gameProfile);
+				wearable.getMetadata(), gameProfile);
 		if (gameProfile != null) {
 			GL11.glTranslatef(0.0f, -0.25f, 0.0f);
 			GL11.glRotatef(180F, 0, 0, 1);

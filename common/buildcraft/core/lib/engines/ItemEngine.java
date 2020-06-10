@@ -22,7 +22,7 @@ public class ItemEngine extends ItemBlockBuildCraft {
 		super(block);
 		engineBlock = (BlockEngineBase) block;
 		setCreativeTab(BCCreativeTab.get("main"));
-		setMaxDamage(0);
+		setMaxDurability(0);
 		setHasSubtypes(true);
 	}
 
@@ -33,7 +33,7 @@ public class ItemEngine extends ItemBlockBuildCraft {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return engineBlock.getUnlocalizedName(itemstack.getItemDamage());
+		return engineBlock.getUnlocalizedName(itemstack.getMetadata());
 	}
 
 	@Override

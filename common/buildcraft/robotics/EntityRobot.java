@@ -192,7 +192,7 @@ public class EntityRobot extends EntityRobotBase implements
 		preventEntitySpawning = false;
 		noClip = true;
 		isImmuneToFire = true;
-		this.func_110163_bv(); // persistenceRequired = true
+		this.enablePersistence(); // persistenceRequired = true
 
 		dataWatcher.addObject(12, (float) 0);
 		dataWatcher.addObject(13, (float) 0);
@@ -474,7 +474,7 @@ public class EntityRobot extends EntityRobotBase implements
 	}
 
 	@Override
-	public ItemStack[] getLastActiveItems() {
+	public ItemStack[] getInventory() {
 		return new ItemStack[0];
 	}
 
@@ -647,7 +647,7 @@ public class EntityRobot extends EntityRobotBase implements
 		}
 
 		// Restore robot persistence on pre-6.1.9 robotics
-		this.func_110163_bv();
+		this.enablePersistence();
 	}
 
 	@Override
@@ -745,7 +745,7 @@ public class EntityRobot extends EntityRobotBase implements
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 
@@ -773,11 +773,11 @@ public class EntityRobot extends EntityRobotBase implements
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -1271,7 +1271,7 @@ public class EntityRobot extends EntityRobotBase implements
 			GameProfile gameProfile = null;
 
 			if (nbttagcompound.hasKey("SkullOwner", NBT.TAG_COMPOUND)) {
-				gameProfile = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("SkullOwner"));
+				gameProfile = NBTUtil.readGameProfileFromNBT(nbttagcompound.getCompoundTag("SkullOwner"));
 			} else if (nbttagcompound.hasKey("SkullOwner", NBT.TAG_STRING)
 					&& !StringUtils.isNullOrEmpty(nbttagcompound.getString("SkullOwner"))) {
 				gameProfile = new GameProfile(null, nbttagcompound.getString("SkullOwner"));
@@ -1279,15 +1279,15 @@ public class EntityRobot extends EntityRobotBase implements
 			if (gameProfile != null && !StringUtils.isNullOrEmpty(gameProfile.getName())) {
 				if (!gameProfile.isComplete()
 						|| !gameProfile.getProperties().containsKey("textures")) {
-					gameProfile = MinecraftServer.getServer().func_152358_ax()
-							.func_152655_a(gameProfile.getName());
+					gameProfile = MinecraftServer.getServer().getPlayerProfileCache()
+							.getGameProfileForUsername(gameProfile.getName());
 
 					if (gameProfile != null) {
 						Property property = (Property) Iterables.getFirst(gameProfile
 								.getProperties().get("textures"), (Object) null);
 
 						if (property == null) {
-							gameProfile = MinecraftServer.getServer().func_147130_as()
+							gameProfile = MinecraftServer.getServer().getMinecraftSessionService()
 									.fillProfileProperties(gameProfile, true);
 						}
 					}
@@ -1296,7 +1296,7 @@ public class EntityRobot extends EntityRobotBase implements
 			if (gameProfile != null && gameProfile.isComplete()
 					&& gameProfile.getProperties().containsKey("textures")) {
 				NBTTagCompound profileNBT = new NBTTagCompound();
-				NBTUtil.func_152460_a(profileNBT, gameProfile);
+				NBTUtil.writeGameProfileToNBT(profileNBT, gameProfile);
 				nbttagcompound.setTag("SkullOwner", profileNBT);
 			} else {
 				nbttagcompound.removeTag("SkullOwner");

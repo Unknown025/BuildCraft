@@ -111,13 +111,13 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 			return;
 		}
 
-		if (!container.getWorldObj().isRemote) {
+		if (!container.getWorld().isRemote) {
 			item.output = resolveDestination(item);
 		}
 
 		items.add(item);
 
-		if (!container.getWorldObj().isRemote) {
+		if (!container.getWorld().isRemote) {
 			sendTravelerPacket(item, false);
 
 			int itemStackCount = getNumberOfStacks();
@@ -143,8 +143,8 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 	}
 
 	private void destroyPipe() {
-		BlockUtils.explodeBlock(container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord);
-		container.getWorldObj().setBlockToAir(container.xCoord, container.yCoord, container.zCoord);
+		BlockUtils.explodeBlock(container.getWorld(), container.xCoord, container.yCoord, container.zCoord);
+		container.getWorld().setBlockToAir(container.xCoord, container.yCoord, container.zCoord);
 	}
 
 	/**
@@ -171,13 +171,13 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 			return;
 		}
 
-		if (!container.getWorldObj().isRemote) {
+		if (!container.getWorld().isRemote) {
 			item.output = resolveDestination(item);
 		}
 
 		items.unscheduleRemoval(item);
 
-		if (!container.getWorldObj().isRemote) {
+		if (!container.getWorld().isRemote) {
 			sendTravelerPacket(item, true);
 		}
 	}
@@ -353,7 +353,7 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 		if (passToNextPipe(item, tile)) {
 			// NOOP
 		} else if (tile instanceof IInventory) {
-			if (!container.getWorldObj().isRemote) {
+			if (!container.getWorld().isRemote) {
 				if (item.getInsertionHandler().canInsertItem(item, (IInventory) tile)) {
 					ItemStack added = Transactor.getTransactorFor(tile).add(item.getItemStack(), item.output.getOpposite(), true);
 					item.getItemStack().stackSize -= added.stackSize;
@@ -369,7 +369,7 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 	}
 
 	private void dropItem(TravelingItem item) {
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 
@@ -393,7 +393,7 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 		entity.motionZ = direction.offsetZ * item.speed * 5
 				+ getWorld().rand.nextGaussian() * 0.1d;
 
-		container.getWorldObj().spawnEntityInWorld(entity);
+		container.getWorld().spawnEntityInWorld(entity);
 	}
 
 	protected boolean middleReached(TravelingItem item) {
@@ -490,7 +490,7 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 
 	private void sendTravelerPacket(TravelingItem data, boolean forceStackRefresh) {
 		PacketPipeTransportTraveler packet = new PacketPipeTransportTraveler(data, forceStackRefresh);
-		BuildCraftTransport.instance.sendToPlayers(packet, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
+		BuildCraftTransport.instance.sendToPlayers(packet, container.getWorld(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
 	}
 
 	public int getNumberOfStacks() {
@@ -526,7 +526,7 @@ public class PipeTransportItems extends PipeTransport implements IDebuggable {
 		}
 
 		if (tile instanceof ISidedInventory) {
-			int[] slots = ((ISidedInventory) tile).getAccessibleSlotsFromSide(side.getOpposite().ordinal());
+			int[] slots = ((ISidedInventory) tile).getSlotsForFace(side.getOpposite().ordinal());
 			return slots != null && slots.length > 0;
 		}
 

@@ -173,11 +173,11 @@ public class TileHopper extends TileBuildCraft implements IInventory, IEnergyHan
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override
@@ -186,7 +186,7 @@ public class TileHopper extends TileBuildCraft implements IInventory, IEnergyHan
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 

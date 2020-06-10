@@ -58,7 +58,7 @@ public class PipeItemsStripes extends Pipe<PipeTransportItems> implements IEnerg
 	public void updateEntity() {
 		super.updateEntity();
 
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 
@@ -121,7 +121,7 @@ public class PipeItemsStripes extends Pipe<PipeTransportItems> implements IEnerg
 	}
 
 	public void eventHandler(PipeEventItem.DropItem event) {
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 

@@ -187,7 +187,7 @@ public class PipeTransportPower extends PipeTransport implements IDebuggable {
 
 	@Override
 	public void updateEntity() {
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 
@@ -340,12 +340,12 @@ public class PipeTransportPower extends PipeTransport implements IDebuggable {
 		}
 
 
-		if (tracker.markTimeIfDelay(container.getWorldObj())) {
+		if (tracker.markTimeIfDelay(container.getWorld())) {
 			PacketPowerUpdate packet = new PacketPowerUpdate(container.xCoord, container.yCoord, container.zCoord);
 
 			packet.displayPower = displayPower;
 			packet.overload = isOverloaded();
-			BuildCraftTransport.instance.sendToPlayers(packet, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
+			BuildCraftTransport.instance.sendToPlayers(packet, container.getWorld(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
 		}
 	}
 
@@ -354,9 +354,9 @@ public class PipeTransportPower extends PipeTransport implements IDebuggable {
 	}
 
 	private void step() {
-		if (container != null && container.getWorldObj() != null
-				&& currentDate != container.getWorldObj().getTotalWorldTime()) {
-			currentDate = container.getWorldObj().getTotalWorldTime();
+		if (container != null && container.getWorld() != null
+				&& currentDate != container.getWorld().getTotalWorldTime()) {
+			currentDate = container.getWorld().getTotalWorldTime();
 
 			Arrays.fill(dbgEnergyInput, 0);
 			Arrays.fill(dbgEnergyOffered, 0);
@@ -426,7 +426,7 @@ public class PipeTransportPower extends PipeTransport implements IDebuggable {
 
 	@Override
 	public void initialize() {
-		currentDate = container.getWorldObj().getTotalWorldTime();
+		currentDate = container.getWorld().getTotalWorldTime();
 	}
 
 	@Override

@@ -75,7 +75,7 @@ public class BlockPlainPipe extends Block {
 	}
 
 	@Override
-	public void registerBlockIcons(IIconRegister register) {
+	public void registerIcons(IIconRegister register) {
 		blockIcon = register.registerIcon("buildcraftfactory:plainPipeBlock/default");
 	}
 }

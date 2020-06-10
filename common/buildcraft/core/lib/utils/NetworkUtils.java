@@ -61,7 +61,7 @@ public final class NetworkUtils {
 			int length = data.readInt();
 			byte[] compressed = new byte[length];
 			data.readBytes(compressed);
-			return CompressedStreamTools.func_152457_a(compressed, NBTSizeTracker.field_152451_a);
+			return CompressedStreamTools.decompress(compressed, NBTSizeTracker.INFINITE);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -76,7 +76,7 @@ public final class NetworkUtils {
 			// so we use this "trick" to save bandwidth by storing it in the first byte.
 			data.writeByte((MathUtils.clamp(stack.stackSize + 1, 0, 64) & 0x7F) | (stack.hasTagCompound() ? 128 : 0));
 			data.writeShort(Item.getIdFromItem(stack.getItem()));
-			data.writeShort(stack.getItemDamage());
+			data.writeShort(stack.getMetadata());
 			if (stack.hasTagCompound()) {
 				writeNBT(data, stack.getTagCompound());
 			}

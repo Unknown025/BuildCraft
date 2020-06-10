@@ -134,7 +134,7 @@ public class ListMatchHandlerOreDictionary extends ListMatchHandler {
 		List<ItemStack> wildcard = new ArrayList<ItemStack>();
 
 		for (ItemStack is : stacks) {
-			if (is != null && is.getItemDamage() == OreDictionary.WILDCARD_VALUE && is.getHasSubtypes()) {
+			if (is != null && is.getMetadata() == OreDictionary.WILDCARD_VALUE && is.getHasSubtypes()) {
 				wildcard.add(is);
 			}
 		}

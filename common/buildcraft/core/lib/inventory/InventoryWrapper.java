@@ -68,13 +68,13 @@ public abstract class InventoryWrapper implements ISidedInventory {
 	}
 
 	@Override
-	public void openInventory() {
-		inventory.openInventory();
+	public void openChest() {
+		inventory.openChest();
 	}
 
 	@Override
-	public void closeInventory() {
-		inventory.closeInventory();
+	public void closeChest() {
+		inventory.closeChest();
 	}
 
 	@Override
@@ -83,8 +83,8 @@ public abstract class InventoryWrapper implements ISidedInventory {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
-		return inventory.hasCustomInventoryName();
+	public boolean isCustomInventoryName() {
+		return inventory.isCustomInventoryName();
 	}
 
 	/* STATIC HELPER */

@@ -52,7 +52,7 @@ public class RenderPathMarker extends TileEntitySpecialRenderer {
 					GL11.glPushMatrix();
 					RenderLaser
 							.doRenderLaser(
-									TileEntityRendererDispatcher.instance.field_147553_e,
+									TileEntityRendererDispatcher.instance.renderEngine,
 									laser, EntityLaser.LASER_TEXTURES[3]);
 					GL11.glPopMatrix();
 				}

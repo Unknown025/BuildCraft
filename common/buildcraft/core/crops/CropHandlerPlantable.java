@@ -32,7 +32,7 @@ public class CropHandlerPlantable implements ICropHandler {
 		}
 
 		if (stack.getItem() instanceof ItemBlock) {
-			Block block = ((ItemBlock) stack.getItem()).field_150939_a;
+			Block block = ((ItemBlock) stack.getItem()).blockInstance;
 			if (block instanceof IPlantable && block != Blocks.reeds) {
 				return true;
 			}
@@ -49,9 +49,9 @@ public class CropHandlerPlantable implements ICropHandler {
 					&& world.isAirBlock(x, y + 1, z);
 		} else {
 			Block block = world.getBlock(x, y, z);
-			IPlantable plantable = (IPlantable) ((ItemBlock) seed.getItem()).field_150939_a;
+			IPlantable plantable = (IPlantable) ((ItemBlock) seed.getItem()).blockInstance;
 			return block.canSustainPlant(world, x, y, z, ForgeDirection.UP, plantable)
-					&& block != ((ItemBlock) seed.getItem()).field_150939_a
+					&& block != ((ItemBlock) seed.getItem()).blockInstance
 					&& world.isAirBlock(x, y + 1, z);
 		}
 	}

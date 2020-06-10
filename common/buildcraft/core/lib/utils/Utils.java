@@ -86,7 +86,7 @@ public final class Utils {
 	    }
 	    Block block = Block.getBlockFromItem(stack.getItem());
 	    if (block instanceof BlockEngineBase) {
-	        return isRegistered(block) && ((BlockEngineBase) block).hasEngine(stack.getItemDamage());
+	        return isRegistered(block) && ((BlockEngineBase) block).hasEngine(stack.getMetadata());
 	    }
 	    return isRegistered(stack.getItem());
 	}

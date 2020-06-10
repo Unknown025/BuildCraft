@@ -108,13 +108,13 @@ public class BlockSpring extends Block {
 
 	// Prevents updates on chunk generation
 	@Override
-	public boolean func_149698_L() {
+	public boolean getTickRandomly() {
 		return false;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister par1IconRegister) {
+	public void registerIcons(IIconRegister par1IconRegister) {
 		blockIcon = par1IconRegister.registerIcon("bedrock");
 	}
 }

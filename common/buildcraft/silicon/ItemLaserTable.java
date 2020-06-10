@@ -17,13 +17,13 @@ public class ItemLaserTable extends ItemBlockBuildCraft {
 
 	public ItemLaserTable(Block block) {
 		super(block);
-		setMaxDamage(0);
+		setMaxDurability(0);
 		setHasSubtypes(true);
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		switch (stack.getItemDamage()) {
+		switch (stack.getMetadata()) {
 			case 0:
 				return "tile.assemblyTableBlock";
 			case 1:

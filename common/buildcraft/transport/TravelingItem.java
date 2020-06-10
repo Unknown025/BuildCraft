@@ -200,7 +200,7 @@ public class TravelingItem {
 	}
 
 	public EntityItem toEntityItem() {
-		if (container != null && !container.getWorldObj().isRemote) {
+		if (container != null && !container.getWorld().isRemote) {
 			if (getItemStack().stackSize <= 0) {
 				return null;
 			}
@@ -208,14 +208,14 @@ public class TravelingItem {
 			Position motion = new Position(0, 0, 0, output);
 			motion.moveForwards(0.1 + getSpeed() * 2F);
 
-			EntityItem entity = new EntityItem(container.getWorldObj(), xCoord, yCoord, zCoord, getItemStack());
+			EntityItem entity = new EntityItem(container.getWorld(), xCoord, yCoord, zCoord, getItemStack());
 			entity.lifespan = BuildCraftCore.itemLifespan * 20;
 			entity.delayBeforeCanPickup = 10;
 
-			float f3 = 0.00F + container.getWorldObj().rand.nextFloat() * 0.04F - 0.02F;
-			entity.motionX = (float) container.getWorldObj().rand.nextGaussian() * f3 + motion.x;
-			entity.motionY = (float) container.getWorldObj().rand.nextGaussian() * f3 + motion.y;
-			entity.motionZ = (float) container.getWorldObj().rand.nextGaussian() * f3 + +motion.z;
+			float f3 = 0.00F + container.getWorld().rand.nextFloat() * 0.04F - 0.02F;
+			entity.motionX = (float) container.getWorld().rand.nextGaussian() * f3 + motion.x;
+			entity.motionY = (float) container.getWorld().rand.nextGaussian() * f3 + motion.y;
+			entity.motionZ = (float) container.getWorld().rand.nextGaussian() * f3 + +motion.z;
 			return entity;
 		}
 		return null;
@@ -224,10 +224,10 @@ public class TravelingItem {
 	public float getEntityBrightness(float f) {
 		int i = MathHelper.floor_double(xCoord);
 		int j = MathHelper.floor_double(zCoord);
-		if (container != null && container.getWorldObj().blockExists(i, 128 / 2, j)) {
+		if (container != null && container.getWorld().blockExists(i, 128 / 2, j)) {
 			double d = 0.66000000000000003D;
 			int k = MathHelper.floor_double(yCoord + d);
-			return container.getWorldObj().getLightBrightness(i, k, j);
+			return container.getWorld().getLightBrightness(i, k, j);
 		} else {
 			return 0.0F;
 		}

@@ -180,11 +180,11 @@ public class TileBlueprintLibrary extends TileBuildCraft implements IInventory, 
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	private LibraryTypeHandler findHandler(int slot, LibraryTypeHandler.HandlerType type) {
@@ -275,7 +275,7 @@ public class TileBlueprintLibrary extends TileBuildCraft implements IInventory, 
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 
@@ -330,7 +330,7 @@ public class TileBlueprintLibrary extends TileBuildCraft implements IInventory, 
 						return;
 					}
 
-					NBTTagCompound nbt = CompressedStreamTools.func_152457_a(data, NBTSizeTracker.field_152451_a);
+					NBTTagCompound nbt = CompressedStreamTools.decompress(data, NBTSizeTracker.INFINITE);
 					BuildCraftBuilders.clientDB.add(id, nbt);
 					entries = BuildCraftBuilders.clientDB.getBlueprintIds();
 				} catch (IOException e) {
@@ -363,7 +363,7 @@ public class TileBlueprintLibrary extends TileBuildCraft implements IInventory, 
 						ItemStack output = null;
 
 						if (handler instanceof LibraryTypeHandlerNBT) {
-							NBTTagCompound nbt = CompressedStreamTools.func_152457_a(blueprintDownload, NBTSizeTracker.field_152451_a);
+							NBTTagCompound nbt = CompressedStreamTools.decompress(blueprintDownload, NBTSizeTracker.INFINITE);
 							output = ((LibraryTypeHandlerNBT) handler).load(getStackInSlot(2), nbt);
 						} else if (handler instanceof LibraryTypeHandlerByteArray) {
 							output = ((LibraryTypeHandlerByteArray) handler).load(getStackInSlot(2), blueprintDownload);

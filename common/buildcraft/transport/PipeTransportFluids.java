@@ -229,13 +229,13 @@ public class PipeTransportFluids extends PipeTransport implements IFluidHandler,
 
 	@Override
 	public void updateEntity() {
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 
 		moveFluids();
 
-		if (networkSyncTracker.markTimeIfDelay(container.getWorldObj())) {
+		if (networkSyncTracker.markTimeIfDelay(container.getWorld())) {
 			boolean init = false;
 			if (++clientSyncCounter > BuildCraftCore.longUpdateFactor * 2) {
 				clientSyncCounter = 0;
@@ -244,14 +244,14 @@ public class PipeTransportFluids extends PipeTransport implements IFluidHandler,
 			PacketFluidUpdate packet = computeFluidUpdate(init, true);
 
 			if (packet != null) {
-				BuildCraftTransport.instance.sendToPlayers(packet, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
+				BuildCraftTransport.instance.sendToPlayers(packet, container.getWorld(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
 			}
 		}
 	}
 
 	private void moveFluids() {
 		if (fluidType != null) {
-			short newTimeSlot = (short) (container.getWorldObj().getTotalWorldTime() % travelDelay);
+			short newTimeSlot = (short) (container.getWorld().getTotalWorldTime() % travelDelay);
 			int outputCount = computeCurrentConnectionStatesAndTickFlows(newTimeSlot > 0 && newTimeSlot < travelDelay ? newTimeSlot : 0);
 
 			if (fluidType != null) {
@@ -491,7 +491,7 @@ public class PipeTransportFluids extends PipeTransport implements IFluidHandler,
 		super.sendDescriptionPacket();
 
 		PacketFluidUpdate update = computeFluidUpdate(true, true);
-		BuildCraftTransport.instance.sendToPlayers(update, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
+		BuildCraftTransport.instance.sendToPlayers(update, container.getWorld(), container.xCoord, container.yCoord, container.zCoord, DefaultProps.PIPE_CONTENTS_RENDER_DIST);
 	}
 
 	public FluidStack getStack(ForgeDirection direction) {

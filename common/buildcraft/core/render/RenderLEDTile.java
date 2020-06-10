@@ -30,7 +30,7 @@ public class RenderLEDTile extends TileEntitySpecialRenderer {
 		this.block = block;
 	}
 
-	public static void registerBlockIcons(IIconRegister register) {
+	public static void registerIcons(IIconRegister register) {
 		for (Block b : iconMap.keySet().toArray(new Block[iconMap.keySet().size()])) {
 			String base = ResourceUtils.getObjectPrefix(Block.blockRegistry.getNameForObject(b));
 			if (base != null) {

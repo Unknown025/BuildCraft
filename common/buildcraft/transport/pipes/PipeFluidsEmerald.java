@@ -77,8 +77,8 @@ public class PipeFluidsEmerald extends PipeFluidsWood implements ISerializable {
 			return true;
 		}
 
-		if (!container.getWorldObj().isRemote) {
-			entityplayer.openGui(BuildCraftTransport.instance, GuiIds.PIPE_EMERALD_FLUID, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord);
+		if (!container.getWorld().isRemote) {
+			entityplayer.openGui(BuildCraftTransport.instance, GuiIds.PIPE_EMERALD_FLUID, container.getWorld(), container.xCoord, container.yCoord, container.zCoord);
 		}
 
 		return true;

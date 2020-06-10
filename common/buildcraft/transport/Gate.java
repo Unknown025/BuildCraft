@@ -324,7 +324,7 @@ public final class Gate implements IGate, ISidedStatementContainer, IRedstoneSta
 	// GUI
 	public void openGui(EntityPlayer player) {
 		if (!player.worldObj.isRemote) {
-			player.openGui(BuildCraftTransport.instance, GuiIds.GATES, pipe.container.getWorldObj(), pipe.container.xCoord, pipe.container.yCoord, pipe.container.zCoord);
+			player.openGui(BuildCraftTransport.instance, GuiIds.GATES, pipe.container.getWorld(), pipe.container.xCoord, pipe.container.yCoord, pipe.container.zCoord);
 			// ThermalExpansion Autonomous Activator crash fix
 			if (player.openContainer instanceof ContainerGateInterface) {
 				((ContainerGateInterface) player.openContainer).setGate(direction.ordinal());

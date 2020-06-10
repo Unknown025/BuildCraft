@@ -57,10 +57,10 @@ public final class CraftingUtils {
 				&& item1.stackSize == 1 && item2.stackSize == 1
 				&& item1.getItem().isRepairable()) {
 			Item itemBase = item1.getItem();
-			int item1Durability = itemBase.getMaxDamage() - item1.getItemDamageForDisplay();
-			int item2Durability = itemBase.getMaxDamage() - item2.getItemDamageForDisplay();
-			int repairAmt = item1Durability + item2Durability + itemBase.getMaxDamage() * 5 / 100;
-			int newDamage = itemBase.getMaxDamage() - repairAmt;
+			int item1Durability = itemBase.getMaxDurability() - item1.getMetadata();
+			int item2Durability = itemBase.getMaxDurability() - item2.getMetadata();
+			int repairAmt = item1Durability + item2Durability + itemBase.getMaxDurability() * 5 / 100;
+			int newDamage = itemBase.getMaxDurability() - repairAmt;
 
 			if (newDamage < 0) {
 				newDamage = 0;

@@ -95,8 +95,8 @@ public abstract class BoardRobotGenericSearchBlock extends RedstoneBoardRobot {
 						ItemStack stack = param.getItemStack();
 
 						if (stack != null && stack.getItem() instanceof ItemBlock) {
-							blockFilter.add(((ItemBlock) stack.getItem()).field_150939_a);
-							metaFilter.add(stack.getItemDamage());
+							blockFilter.add(((ItemBlock) stack.getItem()).blockInstance);
+							metaFilter.add(stack.getMetadata());
 						}
 					}
 				}

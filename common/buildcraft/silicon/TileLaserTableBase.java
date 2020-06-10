@@ -135,11 +135,11 @@ public abstract class TileLaserTableBase extends TileBuildCraft implements ILase
 	}
 
 	@Override
-	public void openInventory() {
+	public void openChest() {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeChest() {
 	}
 
 	@Override

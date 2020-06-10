@@ -85,7 +85,7 @@ public class TilePathMarker extends TileMarker implements IPathProvider {
 		double nearestDistance = 0, distance;
 
 		for (TilePathMarker t : availableMarkers) {
-			if (t == this || t == this.links[0] || t == this.links[1] || t.getWorldObj().provider.dimensionId != this.getWorldObj().provider.dimensionId) {
+			if (t == this || t == this.links[0] || t == this.links[1] || t.getWorld().provider.dimensionId != this.getWorld().provider.dimensionId) {
 				continue;
 			}
 
@@ -138,7 +138,7 @@ public class TilePathMarker extends TileMarker implements IPathProvider {
 			tryingToConnect = false;
 
 			sendNetworkUpdate();
-			getWorldObj().markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord,
+			getWorld().markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord,
 					xCoord, yCoord, zCoord);
 		}
 	}
@@ -287,7 +287,7 @@ public class TilePathMarker extends TileMarker implements IPathProvider {
 	public static void clearAvailableMarkersList(World w) {
 		for (Iterator<TilePathMarker> it = availableMarkers.iterator(); it.hasNext();) {
 			TilePathMarker t = it.next();
-			if (t.getWorldObj().provider.dimensionId == w.provider.dimensionId) {
+			if (t.getWorld().provider.dimensionId == w.provider.dimensionId) {
 				it.remove();
 			}
 		}

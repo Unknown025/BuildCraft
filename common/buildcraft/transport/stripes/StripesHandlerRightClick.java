@@ -25,7 +25,7 @@ public class StripesHandlerRightClick implements IStripesHandler {
 
 	@Override
 	public boolean shouldHandle(ItemStack stack) {
-		return (stack.getItem() == Items.potionitem && ItemPotion.isSplash(stack.getItemDamage()))
+		return (stack.getItem() == Items.potionitem && ItemPotion.isSplash(stack.getMetadata()))
 				|| items.contains(stack.getItem());
 	}
 

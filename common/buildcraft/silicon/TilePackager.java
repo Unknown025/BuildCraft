@@ -435,7 +435,7 @@ public class TilePackager extends TileBuildCraft implements ISidedInventory {
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean isCustomInventoryName() {
 		return false;
 	}
 
@@ -450,13 +450,13 @@ public class TilePackager extends TileBuildCraft implements ISidedInventory {
 	}
 
 	@Override
-	public void openInventory() {
-		inventoryPublic.openInventory();
+	public void openChest() {
+		inventoryPublic.openChest();
 	}
 
 	@Override
-	public void closeInventory() {
-		inventoryPublic.closeInventory();
+	public void closeChest() {
+		inventoryPublic.closeChest();
 	}
 
 	@Override
@@ -468,7 +468,7 @@ public class TilePackager extends TileBuildCraft implements ISidedInventory {
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int side) {
+	public int[] getSlotsForFace(int side) {
 		return SLOTS;
 	}
 

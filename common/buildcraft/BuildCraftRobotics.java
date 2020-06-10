@@ -208,11 +208,11 @@ public class BuildCraftRobotics extends BuildCraftMod {
 		BCRegistry.INSTANCE.registerItem(redstoneBoard, false);
 
 		zonePlanBlock = (BlockZonePlan) CompatHooks.INSTANCE.getBlock(BlockZonePlan.class);
-		zonePlanBlock.setBlockName("zonePlan");
+		zonePlanBlock.setUnlocalizedName("zonePlan");
 		BCRegistry.INSTANCE.registerBlock(zonePlanBlock, false);
 
 		requesterBlock = (BlockRequester) CompatHooks.INSTANCE.getBlock(BlockRequester.class);
-		requesterBlock.setBlockName("requester");
+		requesterBlock.setUnlocalizedName("requester");
 		BCRegistry.INSTANCE.registerBlock(requesterBlock, false);
 
 		RedstoneBoardRegistry.instance = new ImplRedstoneBoardRegistry();

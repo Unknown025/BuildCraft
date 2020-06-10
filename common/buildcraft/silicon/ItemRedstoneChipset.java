@@ -63,7 +63,7 @@ public class ItemRedstoneChipset extends ItemBuildCraft {
 	public ItemRedstoneChipset() {
 		super();
 		setHasSubtypes(true);
-		setMaxDamage(0);
+		setMaxDurability(0);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class ItemRedstoneChipset extends ItemBuildCraft {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Chipset.fromOrdinal(stack.getItemDamage()).getChipsetName();
+		return "item." + Chipset.fromOrdinal(stack.getMetadata()).getChipsetName();
 	}
 
 	@SuppressWarnings({"rawtypes", "unchecked"})

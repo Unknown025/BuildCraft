@@ -34,7 +34,7 @@ public class TriggerLightSensor extends BCStatement implements ITriggerInternal 
 		pos.orientation = ((ISidedStatementContainer) source).getSide();
 		pos.moveForwards(1.0);
 
-		int lightLevel = tile.getWorldObj().getBlockLightValue((int) pos.x, (int) pos.y, (int) pos.z);
+		int lightLevel = tile.getWorld().getBlockLightValue((int) pos.x, (int) pos.y, (int) pos.z);
 
 		return (lightLevel < 8) ^ bright;
 	}

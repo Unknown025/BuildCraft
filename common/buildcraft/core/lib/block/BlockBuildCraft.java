@@ -238,7 +238,7 @@ public abstract class BlockBuildCraft extends BlockContainer {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister register) {
+	public void registerIcons(IIconRegister register) {
 		icons = new IIcon[16][];
 		String[] iconBlockNames = getIconBlockNames();
 		for (int i = 0; i < iconBlockNames.length; i++) {

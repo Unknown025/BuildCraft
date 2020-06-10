@@ -88,8 +88,8 @@ public class PipeItemsEmerald extends PipeItemsWood implements ISerializable, IG
 			return true;
 		}
 
-		if (!container.getWorldObj().isRemote) {
-			entityplayer.openGui(BuildCraftTransport.instance, GuiIds.PIPE_EMERALD_ITEM, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord);
+		if (!container.getWorld().isRemote) {
+			entityplayer.openGui(BuildCraftTransport.instance, GuiIds.PIPE_EMERALD_ITEM, container.getWorld(), container.xCoord, container.yCoord, container.zCoord);
 		}
 
 		return true;
@@ -112,7 +112,7 @@ public class PipeItemsEmerald extends PipeItemsWood implements ISerializable, IG
 	}
 
 	private ItemStack[] checkExtractFiltered(ISidedInventory inventory, boolean doRemove, ForgeDirection from) {
-		for (int k : inventory.getAccessibleSlotsFromSide(from.ordinal())) {
+		for (int k : inventory.getSlotsForFace(from.ordinal())) {
 			ItemStack stack = inventory.getStackInSlot(k);
 
 			if (stack == null || stack.stackSize <= 0) {
@@ -151,7 +151,7 @@ public class PipeItemsEmerald extends PipeItemsWood implements ISerializable, IG
 	}
 
 	private ItemStack[] checkExtractRoundRobin(ISidedInventory inventory, boolean doRemove, ForgeDirection from) {
-		for (int i : inventory.getAccessibleSlotsFromSide(from.ordinal())) {
+		for (int i : inventory.getSlotsForFace(from.ordinal())) {
 			ItemStack stack = inventory.getStackInSlot(i);
 
 			if (stack != null && stack.stackSize > 0) {

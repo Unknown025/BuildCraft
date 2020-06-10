@@ -205,8 +205,8 @@ public class BlockTank extends BlockBuildCraft {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister par1IconRegister) {
-		super.registerBlockIcons(par1IconRegister);
+	public void registerIcons(IIconRegister par1IconRegister) {
+		super.registerIcons(par1IconRegister);
 		textureStackedSide = par1IconRegister.registerIcon("buildcraftfactory:tankBlock/side_stacked");
 	}
 

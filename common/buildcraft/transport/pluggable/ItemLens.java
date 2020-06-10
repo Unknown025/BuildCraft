@@ -55,13 +55,13 @@ public class ItemLens extends ItemBuildCraft implements IPipePluggableItem {
 	}
 
 	public int getDye(ItemStack stack) {
-		return 15 - (stack.getItemDamage() & 15);
+		return 15 - (stack.getMetadata() & 15);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass) {
-		if (stack.getItemDamage() >= 32) {
+		if (stack.getMetadata() >= 32) {
 			return 16777215;
 		}
 		return pass == 0 ? ColorUtils.getRGBColor(getDye(stack)) : 16777215;
@@ -69,10 +69,10 @@ public class ItemLens extends ItemBuildCraft implements IPipePluggableItem {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
-		if (itemstack.getItemDamage() >= 32) {
-			return StringUtils.localize(itemstack.getItemDamage() == 33 ? "item.Filter.name" : "item.Lens.name") + " (" + StringUtils.localize("color.clear") + ")";
+		if (itemstack.getMetadata() >= 32) {
+			return StringUtils.localize(itemstack.getMetadata() == 33 ? "item.Filter.name" : "item.Lens.name") + " (" + StringUtils.localize("color.clear") + ")";
 		} else {
-			return StringUtils.localize(itemstack.getItemDamage() >= 16 ? "item.Filter.name" : "item.Lens.name") + " (" + StringUtils.localize("color." + ColorUtils.getName(getDye(itemstack))) + ")";
+			return StringUtils.localize(itemstack.getMetadata() >= 16 ? "item.Filter.name" : "item.Lens.name") + " (" + StringUtils.localize("color." + ColorUtils.getName(getDye(itemstack))) + ")";
 		}
 	}
 

@@ -51,7 +51,7 @@ public class ItemList extends ItemBuildCraft implements IList {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		if (!world.isRemote) {
-			player.openGui(BuildCraftCore.instance, stack.getItemDamage() == 1 ? GuiIds.LIST_NEW : GuiIds.LIST_OLD, world, 0, 0, 0);
+			player.openGui(BuildCraftCore.instance, stack.getMetadata() == 1 ? GuiIds.LIST_NEW : GuiIds.LIST_OLD, world, 0, 0, 0);
 		}
 
 		return stack;
@@ -59,7 +59,7 @@ public class ItemList extends ItemBuildCraft implements IList {
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
-		if (stack.getItemDamage() == 0) {
+		if (stack.getMetadata() == 0) {
 			list.add(EnumChatFormatting.DARK_RED + StatCollector.translateToLocal("tip.deprecated"));
 		}
 
@@ -93,7 +93,7 @@ public class ItemList extends ItemBuildCraft implements IList {
 
 	@Override
 	public boolean matches(ItemStack stackList, ItemStack item) {
-		if (stackList.getItemDamage() == 1) {
+		if (stackList.getMetadata() == 1) {
 			return ListHandlerNew.matches(stackList, item);
 		} else {
 			return ListHandlerOld.matches(stackList, item);

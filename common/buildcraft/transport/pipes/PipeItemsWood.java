@@ -101,7 +101,7 @@ public class PipeItemsWood extends Pipe<PipeTransportItems> implements IEnergyHa
 	public void updateEntity() {
 		super.updateEntity();
 
-		if (container.getWorldObj().isRemote) {
+		if (container.getWorld().isRemote) {
 			return;
 		}
 
@@ -223,7 +223,7 @@ public class PipeItemsWood extends Pipe<PipeTransportItems> implements IEnergyHa
 			return null;
 		}
 
-		for (int k : inventory.getAccessibleSlotsFromSide(from.ordinal())) {
+		for (int k : inventory.getSlotsForFace(from.ordinal())) {
 			ItemStack slot = inventory.getStackInSlot(k);
 
 			if (slot != null && slot.stackSize > 0 && inventory.canExtractItem(k, slot, from.ordinal())) {

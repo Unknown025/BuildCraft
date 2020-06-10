@@ -30,7 +30,7 @@ public class ItemPipeWire extends ItemBuildCraft {
 	public ItemPipeWire() {
 		super();
 		setHasSubtypes(true);
-		setMaxDamage(0);
+		setMaxDurability(0);
 		setPassSneakClick(true);
 		setUnlocalizedName("pipeWire");
 	}
@@ -42,7 +42,7 @@ public class ItemPipeWire extends ItemBuildCraft {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + PipeWire.fromOrdinal(stack.getItemDamage()).getTag();
+		return "item." + PipeWire.fromOrdinal(stack.getMetadata()).getTag();
 	}
 
 	@SuppressWarnings({"rawtypes", "unchecked"})

@@ -146,7 +146,7 @@ public abstract class Pipe<T extends PipeTransport> implements IDropControlInven
 		actionStates.clear();
 
 		// Update the gate if we have any
-		if (!container.getWorldObj().isRemote) {
+		if (!container.getWorld().isRemote) {
 			for (Gate gate : gates) {
 				if (gate != null) {
 					gate.resolveActions();
@@ -388,12 +388,12 @@ public abstract class Pipe<T extends PipeTransport> implements IDropControlInven
 	}
 
 	protected void notifyBlocksOfNeighborChange(ForgeDirection side) {
-		container.getWorldObj().notifyBlocksOfNeighborChange(container.xCoord + side.offsetX, container.yCoord + side.offsetY, container.zCoord + side.offsetZ, BuildCraftTransport.genericPipeBlock);
+		container.getWorld().notifyBlocksOfNeighborChange(container.xCoord + side.offsetX, container.yCoord + side.offsetY, container.zCoord + side.offsetZ, BuildCraftTransport.genericPipeBlock);
 	}
 
 	protected void updateNeighbors(boolean needSelf) {
 		if (needSelf) {
-			container.getWorldObj().notifyBlocksOfNeighborChange(container.xCoord, container.yCoord, container.zCoord, BuildCraftTransport.genericPipeBlock);
+			container.getWorld().notifyBlocksOfNeighborChange(container.xCoord, container.yCoord, container.zCoord, BuildCraftTransport.genericPipeBlock);
 		}
 		for (ForgeDirection side : ForgeDirection.VALID_DIRECTIONS) {
 			notifyBlocksOfNeighborChange(side);
@@ -401,7 +401,7 @@ public abstract class Pipe<T extends PipeTransport> implements IDropControlInven
 	}
 
 	public void dropItem(ItemStack stack) {
-		InvUtils.dropItems(container.getWorldObj(), stack, container.xCoord, container.yCoord, container.zCoord);
+		InvUtils.dropItems(container.getWorld(), stack, container.xCoord, container.yCoord, container.zCoord);
 	}
 
 	public ArrayList<ItemStack> computeItemDrop() {
@@ -536,7 +536,7 @@ public abstract class Pipe<T extends PipeTransport> implements IDropControlInven
 	}
 
 	public World getWorld() {
-		return container.getWorldObj();
+		return container.getWorld();
 	}
 
 	@Override

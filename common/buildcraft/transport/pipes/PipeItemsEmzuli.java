@@ -74,8 +74,8 @@ public class PipeItemsEmzuli extends PipeItemsWood implements IGuiReturnHandler 
 			return true;
 		}
 
-		if (!container.getWorldObj().isRemote) {
-			entityplayer.openGui(BuildCraftTransport.instance, GuiIds.PIPE_LOGEMERALD_ITEM, container.getWorldObj(), container.xCoord, container.yCoord, container.zCoord);
+		if (!container.getWorld().isRemote) {
+			entityplayer.openGui(BuildCraftTransport.instance, GuiIds.PIPE_LOGEMERALD_ITEM, container.getWorld(), container.xCoord, container.yCoord, container.zCoord);
 		}
 
 		return true;
@@ -127,7 +127,7 @@ public class PipeItemsEmzuli extends PipeItemsWood implements IGuiReturnHandler 
 			return null;
 		}
 
-		for (int k : inventory.getAccessibleSlotsFromSide(from.ordinal())) {
+		for (int k : inventory.getSlotsForFace(from.ordinal())) {
 			ItemStack slot = inventory.getStackInSlot(k);
 
 			if (slot != null && slot.stackSize > 0 && inventory.canExtractItem(k, slot, from.ordinal())) {

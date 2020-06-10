@@ -331,14 +331,14 @@ public class BuildCraftTransport extends BuildCraftMod {
 			}
 
 			filteredBufferBlock = new BlockFilteredBuffer();
-			BCRegistry.INSTANCE.registerBlock(filteredBufferBlock.setBlockName("filteredBufferBlock"), false);
+			BCRegistry.INSTANCE.registerBlock(filteredBufferBlock.setUnlocalizedName("filteredBufferBlock"), false);
 
 			pipeWaterproof = new ItemBuildCraft();
 			pipeWaterproof.setUnlocalizedName("pipeWaterproof");
 			BCRegistry.INSTANCE.registerItem(pipeWaterproof, false);
 
 			genericPipeBlock = (BlockGenericPipe) CompatHooks.INSTANCE.getBlock(BlockGenericPipe.class);
-			BCRegistry.INSTANCE.registerBlock(genericPipeBlock.setBlockName("pipeBlock"), ItemBlock.class, true);
+			BCRegistry.INSTANCE.registerBlock(genericPipeBlock.setUnlocalizedName("pipeBlock"), ItemBlock.class, true);
 
 			pipeItemsWood = buildPipe(PipeItemsWood.class, "plankWood", "blockGlassColorless", "plankWood");
 			pipeItemsEmerald = buildPipe(PipeItemsEmerald.class, "gemEmerald", "blockGlassColorless", "gemEmerald");

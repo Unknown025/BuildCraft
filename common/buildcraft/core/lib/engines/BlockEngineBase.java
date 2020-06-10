@@ -59,7 +59,7 @@ public abstract class BlockEngineBase extends BlockBuildCraft implements ICustom
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister register) {
+	public void registerIcons(IIconRegister register) {
 		icons = new IIcon[16][];
 		for (int meta = 0; meta < 16; meta++) {
 			String prefix = getTexturePrefix(meta, false);

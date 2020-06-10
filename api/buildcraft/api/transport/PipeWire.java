@@ -60,7 +60,7 @@ public enum PipeWire {
 		} else if (stack.getItem() != item) {
 			return false;
 		} else {
-			return stack.getItemDamage() == ordinal();
+			return stack.getMetadata() == ordinal();
 		}
 	}
 
